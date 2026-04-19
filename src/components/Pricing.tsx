@@ -38,21 +38,21 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="pricing" className="py-20 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Pricing</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Choose your level of protection</h2>
-          <p className="text-muted-foreground text-lg">Cancel anytime. No hidden fees. Backed by AIG.</p>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">Pricing</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Choose your level of protection</h2>
+          <p className="text-muted-foreground text-base sm:text-lg">Cancel anytime. No hidden fees. Backed by AIG.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-6 max-w-5xl mx-auto">
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl p-8 md:p-10 ${
+              className={`relative rounded-3xl p-6 sm:p-8 md:p-10 ${
                 p.popular
                   ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary glow-cyan"
                   : "card-tech"
@@ -66,17 +66,17 @@ const Pricing = () => {
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="font-display text-3xl font-bold mb-2">
-                  {p.name} <span className="text-muted-foreground font-normal text-xl">Plan</span>
+              <div className="mb-5 sm:mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
+                  {p.name} <span className="text-muted-foreground font-normal text-lg sm:text-xl">Plan</span>
                 </h3>
-                <p className="text-muted-foreground">{p.tagline}</p>
+                <p className="text-muted-foreground text-sm sm:text-base">{p.tagline}</p>
               </div>
 
-              <div className="flex items-baseline gap-1.5 mb-8 pb-8 border-b border-primary/15">
-                <span className="text-muted-foreground text-2xl">$</span>
-                <span className="font-display text-6xl font-bold text-chrome">{p.price}</span>
-                <span className="text-muted-foreground">/month</span>
+              <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
+                <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
+                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{p.price}</span>
+                <span className="text-muted-foreground text-sm sm:text-base">/month</span>
               </div>
 
               <ul className="space-y-4 mb-10">

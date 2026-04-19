@@ -14,42 +14,42 @@ const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+    <section className="relative pt-28 pb-20 sm:pt-32 sm:pb-24 md:pt-40 md:pb-32 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <CircuitBackground />
 
       <div className="container relative z-10 text-center max-w-5xl">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs font-medium text-primary mb-8 animate-fade-up">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] sm:text-xs font-medium text-primary mb-6 sm:mb-8 animate-fade-up">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           Monitor • Protect • Empower
         </div>
 
         <div className="flex justify-center mb-6 animate-float-slow">
-          <img src={shield} alt="FortizIQ shield" className="h-20 w-20 md:h-24 md:w-24 drop-shadow-[0_0_30px_hsl(194_100%_50%/0.5)]" />
+          <img src={shield} alt="FortizIQ shield" className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 drop-shadow-[0_0_30px_hsl(194_100%_50%/0.5)]" />
         </div>
 
-        <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-6 animate-fade-up">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 sm:mb-6 animate-fade-up">
           Your Identity. <span className="text-cyan-glow">Fortified.</span>
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Real-time monitoring, credit protection, and <span className="text-foreground font-semibold">$1M identity theft coverage</span> — all under one intelligent platform.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <a
             href={GOLD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all"
+            className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-primary text-primary text-sm sm:text-base font-semibold hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all"
           >
-            Get Gold Protection — $26.99/mo
+            Get Gold — $26.99/mo
           </a>
           <a
             href={PLATINUM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow"
+            className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow"
           >
-            Get Platinum Protection — $36.99/mo
+            Get Platinum — $36.99/mo
           </a>
         </div>
 

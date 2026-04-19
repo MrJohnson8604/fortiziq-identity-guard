@@ -8,14 +8,14 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-20 sm:py-24 md:py-32 relative">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Trusted Nationwide</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Real members. Real peace of mind.</h2>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">Trusted Nationwide</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Real members. Real peace of mind.</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {testimonials.map((t) => (
             <div key={t.name} className="card-tech card-tech-hover rounded-2xl p-7">
               <div className="flex gap-1 mb-5">
