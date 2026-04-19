@@ -7,6 +7,7 @@ const plans = [
   {
     name: "Gold",
     price: "26.99",
+    anchor: "Less than $1/day",
     tagline: "Essential identity protection for individuals.",
     features: [
       "1-Bureau Credit Monitoring",
@@ -22,6 +23,7 @@ const plans = [
   {
     name: "Platinum",
     price: "36.99",
+    anchor: "Best value — 3x the coverage",
     tagline: "Maximum protection across all three bureaus.",
     features: [
       "3-Bureau Credit Report & Score",
@@ -54,7 +56,7 @@ const Pricing = () => {
               key={p.name}
               className={`relative rounded-3xl p-6 sm:p-8 md:p-10 ${
                 p.popular
-                  ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary glow-cyan"
+                  ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary animate-pulse-border"
                   : "card-tech"
               }`}
             >
@@ -73,13 +75,14 @@ const Pricing = () => {
                 <p className="text-muted-foreground text-sm sm:text-base">{p.tagline}</p>
               </div>
 
+              <p className="text-xs text-primary font-semibold mb-1">{p.anchor}</p>
               <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
                 <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
                 <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{p.price}</span>
                 <span className="text-muted-foreground text-sm sm:text-base">/month</span>
               </div>
 
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-4 mb-8">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <div className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center">
@@ -102,6 +105,9 @@ const Pricing = () => {
               >
                 {p.cta}
               </a>
+              <p className="text-center text-xs text-muted-foreground mt-3">
+                No contracts. Cancel anytime. Instant activation.
+              </p>
             </div>
           ))}
         </div>
