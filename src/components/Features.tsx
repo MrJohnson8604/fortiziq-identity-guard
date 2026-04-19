@@ -1,4 +1,5 @@
 import { CreditCard, Globe, Fingerprint, ShieldCheck } from "lucide-react";
+import CreditScoreGauge from "./CreditScoreGauge";
 
 const features = [
   { icon: CreditCard, title: "Credit Monitoring", desc: "Track your credit across 1 or 3 bureaus with real-time alerts for any new activity." },

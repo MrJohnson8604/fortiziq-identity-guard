@@ -38,11 +38,13 @@ const Hero = () => {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 sm:mb-6 animate-fade-up">
           Your Identity. <span className="text-cyan-glow">Fortified.</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Real-time monitoring, credit protection, and <span className="text-foreground font-semibold">$1M identity theft coverage</span> — all under one intelligent platform.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <ThreatStats />
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <a
             href={GOLD_URL}
             target="_blank"
@@ -59,6 +61,16 @@ const Hero = () => {
           >
             Get Platinum — $36.99/mo
           </a>
+        </div>
+
+        {/* Micro-trust badges */}
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-12 sm:mb-14 animate-fade-up" style={{ animationDelay: "0.25s" }}>
+          {microTrust.map((m) => (
+            <div key={m.label} className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] text-primary/70">
+              <m.icon className="h-3.5 w-3.5" />
+              <span>{m.label}</span>
+            </div>
+          ))}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto animate-fade-up" style={{ animationDelay: "0.3s" }}>

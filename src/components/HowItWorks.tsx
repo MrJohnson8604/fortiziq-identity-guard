@@ -1,4 +1,5 @@
 import { Radar, BellRing, ShieldCheck } from "lucide-react";
+import PhoneAlertMockup from "./PhoneAlertMockup";
 
 const steps = [
   { icon: Radar, title: "We Monitor", desc: "Continuous surveillance across the dark web, all three credit bureaus, and SSN activity — 24/7." },
