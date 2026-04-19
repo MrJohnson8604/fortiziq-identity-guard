@@ -25,11 +25,11 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 md:py-32 relative">
+    <section id="faq" className="py-20 sm:py-24 md:py-32 relative">
       <div className="container max-w-3xl">
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">FAQ</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Questions, answered.</h2>
+        <div className="text-center mb-12 sm:mb-16">
+          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">FAQ</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Questions, answered.</h2>
         </div>
 
         <Accordion type="single" collapsible className="space-y-3">
@@ -37,12 +37,12 @@ const FAQ = () => {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="card-tech rounded-2xl px-6 border-primary/15 data-[state=open]:border-primary/50 data-[state=open]:glow-soft transition-all"
+              className="card-tech rounded-2xl px-4 sm:px-6 border-primary/15 data-[state=open]:border-primary/50 data-[state=open]:glow-soft transition-all"
             >
-              <AccordionTrigger className="text-left font-display text-lg font-semibold hover:no-underline hover:text-primary [&>svg]:text-primary [&>svg]:h-5 [&>svg]:w-5">
+              <AccordionTrigger className="text-left font-display text-base sm:text-lg font-semibold hover:no-underline hover:text-primary [&>svg]:text-primary [&>svg]:h-5 [&>svg]:w-5 gap-3">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-5">
+              <AccordionContent className="text-muted-foreground leading-relaxed text-sm sm:text-base pb-5">
                 {f.a}
               </AccordionContent>
             </AccordionItem>

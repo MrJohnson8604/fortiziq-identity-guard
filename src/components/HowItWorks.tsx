@@ -8,31 +8,31 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how" className="py-24 md:py-32 relative">
+    <section id="how" className="py-20 sm:py-24 md:py-32 relative">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">How it Works</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Protection in three intelligent steps</h2>
-          <p className="text-muted-foreground text-lg">A complete identity defense system, working silently in the background.</p>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">How it Works</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Protection in three intelligent steps</h2>
+          <p className="text-muted-foreground text-base sm:text-lg">A complete identity defense system, working silently in the background.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 relative">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 relative">
           {/* Connecting line */}
           <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
           {steps.map((s, i) => (
-            <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-8 relative">
-              <div className="flex items-center justify-between mb-6">
+            <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-6 sm:p-8 relative">
+              <div className="flex items-center justify-between mb-5 sm:mb-6">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
-                  <div className="relative w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
-                    <s.icon className="h-7 w-7 text-primary" />
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
+                    <s.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                   </div>
                 </div>
-                <span className="font-display text-5xl font-bold text-chrome opacity-40">0{i + 1}</span>
+                <span className="font-display text-4xl sm:text-5xl font-bold text-chrome opacity-40">0{i + 1}</span>
               </div>
-              <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+              <h3 className="font-display text-xl sm:text-2xl font-bold mb-3">{s.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{s.desc}</p>
             </div>
           ))}
         </div>

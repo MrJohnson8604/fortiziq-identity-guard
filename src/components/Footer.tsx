@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <nav className="flex gap-8 text-sm">
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-8 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
