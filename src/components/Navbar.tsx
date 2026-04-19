@@ -1,17 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/fortiziq-shield.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const links = [
     { href: "#how", label: "How it Works" },
     { href: "#features", label: "Features" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
   ];
+
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-primary/10">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "backdrop-blur-xl bg-background/85 border-b border-primary/20 shadow-[0_4px_30px_-10px_hsl(var(--primary)/0.3)] animate-slide-down"
+          : "bg-background/40 backdrop-blur-md border-b border-transparent"
+      }`}
+    >
       <div className="container flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-2.5">
           <img src={logo} alt="FortizIQ shield logo" className="h-8 w-8 sm:h-9 sm:w-9 rounded-full" />

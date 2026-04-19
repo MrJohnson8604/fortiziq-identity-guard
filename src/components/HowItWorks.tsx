@@ -18,7 +18,6 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 relative">
-          {/* Connecting line */}
           <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
           {steps.map((s, i) => (
@@ -36,6 +35,11 @@ const HowItWorks = () => {
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-14 sm:mt-20 flex flex-col items-center">
+          <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-6">Real Alert. Real Time.</p>
+          <PhoneAlertMockup />
         </div>
       </div>
     </section>
