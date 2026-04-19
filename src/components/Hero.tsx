@@ -1,5 +1,6 @@
-import { ShieldCheck, Users, BadgeCheck, Headphones } from "lucide-react";
+import { ShieldCheck, Users, BadgeCheck, Headphones, Check, X as XIcon } from "lucide-react";
 import CircuitBackground from "./CircuitBackground";
+import ThreatStats from "./ThreatStats";
 import shield from "@/assets/fortiziq-shield.png";
 
 const trustItems = [
@@ -7,6 +8,13 @@ const trustItems = [
   { icon: ShieldCheck, label: "SOC 2 Compliant" },
   { icon: Headphones, label: "US-Based Recovery Specialists" },
   { icon: BadgeCheck, label: "AIG-Backed Insurance" },
+];
+
+const microTrust = [
+  { icon: ShieldCheck, label: "SOC 2 Compliant" },
+  { icon: BadgeCheck, label: "AIG-Backed Insurance" },
+  { icon: Headphones, label: "US-Based Recovery" },
+  { icon: Check, label: "Cancel Anytime" },
 ];
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
