@@ -113,8 +113,8 @@ const TermsOfService = () => {
             <h2 className="text-2xl font-display font-semibold text-foreground mb-3">10. Contact</h2>
             <p>
               Questions about these Terms? Email{" "}
-              <a href="mailto:legal@fortiziq.com" className="text-primary hover:underline">
-                legal@fortiziq.com
+              <a href="mailto:info@fortizgroup.com" className="text-primary hover:underline">
+                info@fortizgroup.com
               </a>.
             </p>
           </section>
