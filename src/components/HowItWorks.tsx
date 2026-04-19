@@ -1,4 +1,5 @@
 import { Radar, BellRing, ShieldCheck } from "lucide-react";
+import PhoneAlert from "./PhoneAlert";
 
 const steps = [
   { icon: Radar, title: "We Monitor", desc: "Continuous surveillance across the dark web, all three credit bureaus, and SSN activity — 24/7." },
@@ -16,25 +17,31 @@ const HowItWorks = () => {
           <p className="text-muted-foreground text-base sm:text-lg">A complete identity defense system, working silently in the background.</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 relative">
-          {/* Connecting line */}
-          <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-          {steps.map((s, i) => (
-            <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-6 sm:p-8 relative">
-              <div className="flex items-center justify-between mb-5 sm:mb-6">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
-                    <s.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
+        <div className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-14 items-center max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-5 md:gap-6 relative">
+            {steps.map((s, i) => (
+              <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-6 sm:p-7 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
+                      <s.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
+                    </div>
                   </div>
+                  <span className="font-display text-4xl sm:text-5xl font-bold text-chrome opacity-40">0{i + 1}</span>
                 </div>
-                <span className="font-display text-4xl sm:text-5xl font-bold text-chrome opacity-40">0{i + 1}</span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold mb-2">{s.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{s.desc}</p>
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold mb-3">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{s.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="hidden lg:block">
+            <PhoneAlert />
+          </div>
+          <div className="lg:hidden flex justify-center">
+            <PhoneAlert />
+          </div>
         </div>
       </div>
     </section>

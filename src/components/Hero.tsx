@@ -1,5 +1,6 @@
-import { ShieldCheck, Users, BadgeCheck, Headphones } from "lucide-react";
+import { ShieldCheck, Users, BadgeCheck, Headphones, Lock, RefreshCw } from "lucide-react";
 import CircuitBackground from "./CircuitBackground";
+import ThreatStats from "./ThreatStats";
 import shield from "@/assets/fortiziq-shield.png";
 
 const trustItems = [
@@ -7,6 +8,13 @@ const trustItems = [
   { icon: ShieldCheck, label: "SOC 2 Compliant" },
   { icon: Headphones, label: "US-Based Recovery Specialists" },
   { icon: BadgeCheck, label: "AIG-Backed Insurance" },
+];
+
+const microBadges = [
+  { icon: ShieldCheck, label: "SOC 2 Compliant" },
+  { icon: BadgeCheck, label: "AIG-Backed Insurance" },
+  { icon: Headphones, label: "US-Based Specialists" },
+  { icon: RefreshCw, label: "Cancel Anytime" },
 ];
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
@@ -30,11 +38,14 @@ const Hero = () => {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 sm:mb-6 animate-fade-up">
           Your Identity. <span className="text-cyan-glow">Fortified.</span>
         </h1>
+
+        <ThreatStats />
+
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Real-time monitoring, credit protection, and <span className="text-foreground font-semibold">$1M identity theft coverage</span> — all under one intelligent platform.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <a
             href={GOLD_URL}
             target="_blank"
@@ -51,6 +62,15 @@ const Hero = () => {
           >
             Get Platinum — $36.99/mo
           </a>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-12 sm:mb-14 text-xs">
+          {microBadges.map((b) => (
+            <div key={b.label} className="inline-flex items-center gap-1.5 text-primary/80">
+              <b.icon className="h-3.5 w-3.5" />
+              <span>{b.label}</span>
+            </div>
+          ))}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto animate-fade-up" style={{ animationDelay: "0.3s" }}>
