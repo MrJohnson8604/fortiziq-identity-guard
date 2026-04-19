@@ -1,4 +1,5 @@
 import { CreditCard, Globe, Fingerprint, ShieldCheck } from "lucide-react";
+import CreditScoreGauge from "./CreditScoreGauge";
 
 const features = [
   { icon: CreditCard, title: "Credit Monitoring", desc: "Track your credit across 1 or 3 bureaus with real-time alerts for any new activity." },
@@ -26,9 +27,10 @@ const Features = () => {
                 <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <f.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <h3 className="font-display text-lg sm:text-xl font-bold mb-2">{f.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.desc}</p>
+                  {f.title === "Credit Monitoring" && <CreditScoreGauge />}
                 </div>
               </div>
             </div>

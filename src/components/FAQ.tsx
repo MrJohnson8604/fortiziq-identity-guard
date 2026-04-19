@@ -21,6 +21,14 @@ const faqs = [
     q: "Can I cancel anytime?",
     a: "Yes. There are no contracts, no cancellation fees, and no hidden charges. You can cancel your subscription at any time directly from your account dashboard.",
   },
+  {
+    q: "Is my $26.99 or $36.99 per month — what exactly am I paying for?",
+    a: "Gold ($26.99/mo) gives you single-bureau credit monitoring, the full Identity Bundle (SSN, bank accounts, credit/debit, driver's license, medical ID, passport, email, phone, NCOA, sex offender), $1M in identity theft insurance, and US-based recovery — perfect for individuals who want strong, focused protection. Platinum ($36.99/mo) includes everything in Gold plus 3-bureau credit monitoring and reports across Experian, Equifax, and TransUnion, giving you the most complete view of your credit profile and the fastest possible fraud detection.",
+  },
+  {
+    q: "What do I do if I think my identity is already stolen?",
+    a: "Subscribe immediately and contact our US-based resolution specialists — included in both Gold and Platinum plans. They'll take over the entire restoration process: contacting creditors, filing fraud disputes, working with law enforcement, freezing accounts, and rebuilding your credit profile end-to-end. You're also covered by up to $1M in AIG-backed insurance to reimburse stolen funds, legal fees, and lost wages.",
+  },
 ];
 
 const FAQ = () => {
