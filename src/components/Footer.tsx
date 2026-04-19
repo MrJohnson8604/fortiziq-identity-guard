@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/fortiziq-shield.png";
 
 const Footer = () => {
@@ -17,9 +18,9 @@ const Footer = () => {
           </div>
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 sm:gap-8 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+            <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
+            <a href="mailto:support@fortiziq.com" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
           </nav>
         </div>
 
