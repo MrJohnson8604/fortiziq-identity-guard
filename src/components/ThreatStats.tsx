@@ -9,16 +9,14 @@ const stats = [
 const ThreatStats = () => {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setI((v) => (v + 1) % stats.length), 4500);
-    return () => clearInterval(id);
+    const t = setInterval(() => setI((v) => (v + 1) % stats.length), 4000);
+    return () => clearInterval(t);
   }, []);
   return (
-    <div className="flex justify-center mb-6 sm:mb-8 animate-fade-up" style={{ animationDelay: "0.05s" }}>
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5 text-xs sm:text-sm">
-        <span className="w-2 h-2 rounded-full bg-destructive animate-pulse shrink-0" />
-        <span key={i} className="text-foreground/85 font-medium animate-fade-in">
-          {stats[i]}
-        </span>
+    <div className="mx-auto mb-6 sm:mb-8 max-w-xl h-7 flex items-center justify-center">
+      <div key={i} className="inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground animate-fade-up">
+        <span className="w-2 h-2 rounded-full bg-destructive animate-pulse shadow-[0_0_10px_hsl(var(--destructive))]" />
+        <span className="font-medium">{stats[i]}</span>
       </div>
     </div>
   );

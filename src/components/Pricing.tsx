@@ -7,6 +7,7 @@ const plans = [
   {
     name: "Gold",
     price: "26.99",
+    anchor: "Less than $1/day",
     tagline: "Essential identity protection for individuals.",
     features: [
       "1-Bureau Credit Monitoring",
@@ -22,6 +23,7 @@ const plans = [
   {
     name: "Platinum",
     price: "36.99",
+    anchor: "Best value — 3x the coverage",
     tagline: "Maximum protection across all three bureaus.",
     features: [
       "3-Bureau Credit Report & Score",
@@ -73,15 +75,11 @@ const Pricing = () => {
                 <p className="text-muted-foreground text-sm sm:text-base">{p.tagline}</p>
               </div>
 
-              <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
-                {!p.popular && (
-                  <p className="text-xs font-semibold text-primary mb-1.5 uppercase tracking-wider">Less than $1/day</p>
-                )}
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
-                  <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{p.price}</span>
-                  <span className="text-muted-foreground text-sm sm:text-base">/month</span>
-                </div>
+              <p className="text-xs text-primary font-semibold mb-1">{p.anchor}</p>
+              <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
+                <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
+                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{p.price}</span>
+                <span className="text-muted-foreground text-sm sm:text-base">/month</span>
               </div>
 
               <ul className="space-y-4 mb-8">

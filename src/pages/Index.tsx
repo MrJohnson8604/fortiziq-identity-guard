@@ -33,8 +33,8 @@ const Index = () => {
         <Pricing />
         <Testimonials />
         <FAQ />
+        <PreFooterCTA />
       </main>
-      <PreFooterCTA />
       <Footer />
       <SocialProofToast />
       <ExitIntentPopup />

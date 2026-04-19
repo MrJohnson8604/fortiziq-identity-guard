@@ -3,13 +3,13 @@ const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/
 
 const PreFooterCTA = () => {
   return (
-    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden border-t border-primary/15">
-      <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} aria-hidden />
+    <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden border-y border-primary/15" style={{ background: "var(--gradient-hero)" }}>
+      <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="container relative text-center max-w-3xl">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">
           Your Identity Won't <span className="text-cyan-glow">Protect Itself.</span>
         </h2>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5">
           <a
             href={GOLD_URL}
             target="_blank"
@@ -27,7 +27,7 @@ const PreFooterCTA = () => {
             Start Platinum — $36.99/mo
           </a>
         </div>
-        <p className="text-sm tracking-[0.25em] text-primary/70 uppercase font-medium">
+        <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-primary/80 font-medium">
           Monitor • Protect • Empower
         </p>
       </div>
