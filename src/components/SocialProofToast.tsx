@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Lock } from "lucide-react";
+import { Lock, X } from "lucide-react";
 
 const NAMES = [
   "Marcus from Houston",
