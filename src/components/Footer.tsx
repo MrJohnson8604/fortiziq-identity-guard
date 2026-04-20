@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/fortiziq-shield.png";
+import { useEffect } from "react";
 
 const Footer = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://www.rapidscansecure.com/siteseal/siteseal.js?code=17,C7884049C353E7687AEDC03E7C1BF981C8D5DB2B";
+    script.async = true;
+    const footerElement = document.querySelector("footer");
+    if (footerElement) {
+      footerElement.appendChild(script);
+    }
+    return () => {
+      if (footerElement && script.parentNode) {
+        footerElement.removeChild(script);
+      }
+    };
+  }, []);
   return (
     <footer className="border-t border-primary/15 py-14 mt-12 relative">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
