@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Lock } from "lucide-react";
+import { Lock, X } from "lucide-react";
 
 const NAMES = [
   "Marcus from Houston",
@@ -62,6 +62,7 @@ const SocialProofToast = () => {
   const sequence = useMemo(() => buildSequence(NAMES), []);
   const [i, setI] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   const message = useMemo(() => {
     const name = sequence[i % sequence.length];
@@ -70,6 +71,7 @@ const SocialProofToast = () => {
   }, [i, sequence]);
 
   useEffect(() => {
+    if (dismissed) return;
     const show = setTimeout(() => setVisible(true), 6000);
     const cycle = setInterval(() => {
       setVisible(false);
@@ -82,7 +84,9 @@ const SocialProofToast = () => {
       clearTimeout(show);
       clearInterval(cycle);
     };
-  }, [sequence.length]);
+  }, [sequence.length, dismissed]);
+
+  if (dismissed) return null;
 
   return (
     <div
@@ -90,14 +94,22 @@ const SocialProofToast = () => {
         visible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="card-tech rounded-xl px-4 py-3 border-l-4 border-l-primary flex items-start gap-3 shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.4)]">
+      <div className="card-tech rounded-xl px-4 py-3 border-l-4 border-l-primary flex items-start gap-3 shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.4)] relative">
         <div className="shrink-0 mt-0.5 w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center">
           <Lock className="h-3.5 w-3.5 text-primary" />
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 pr-5">
           <p className="text-xs sm:text-sm text-foreground/90 leading-snug">{message}</p>
           <p className="text-[10px] text-muted-foreground mt-1">Just now</p>
         </div>
+        <button
+          type="button"
+          onClick={() => setDismissed(true)}
+          aria-label="Dismiss notification"
+          className="absolute top-1.5 right-1.5 p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
+        >
+          <X className="h-3.5 w-3.5" />
+        </button>
       </div>
     </div>
   );
