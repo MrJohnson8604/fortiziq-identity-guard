@@ -5,22 +5,6 @@ const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/
 
 const plans = [
   {
-    name: "Gold",
-    price: "26.99",
-    anchor: "Less than $1/day",
-    tagline: "Essential identity protection for individuals.",
-    features: [
-      "1-Bureau Credit Monitoring",
-      "Single Bureau Credit Report",
-      "Identity Bundle (SSN, Bank Accounts, Credit/Debit, Driver's License, Medical ID, Passport, Email, Phone, NCOA, Sex Offender)",
-      "US-Based Resolution / $1M Protection",
-      "Credit Score Simulator",
-    ],
-    cta: "Start Gold Protection",
-    url: GOLD_URL,
-    popular: false,
-  },
-  {
     name: "Platinum",
     price: "36.99",
     anchor: "Best value — 3x the coverage",
@@ -35,6 +19,22 @@ const plans = [
     cta: "Start Platinum Protection",
     url: PLATINUM_URL,
     popular: true,
+  },
+  {
+    name: "Gold",
+    price: "26.99",
+    anchor: "Less than $1/day",
+    tagline: "Essential identity protection for individuals.",
+    features: [
+      "1-Bureau Credit Monitoring",
+      "Single Bureau Credit Report",
+      "Identity Bundle (SSN, Bank Accounts, Credit/Debit, Driver's License, Medical ID, Passport, Email, Phone, NCOA, Sex Offender)",
+      "US-Based Resolution / $1M Protection",
+      "Credit Score Simulator",
+    ],
+    cta: "Start Gold Protection",
+    url: GOLD_URL,
+    popular: false,
   },
 ];
 
