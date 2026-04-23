@@ -47,20 +47,20 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <a
-            href={GOLD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-primary text-primary text-sm sm:text-base font-semibold hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all"
-          >
-            Get Gold — $26.99/mo
-          </a>
-          <a
             href={PLATINUM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow"
           >
             Get Platinum — $36.99/mo
+          </a>
+          <a
+            href={GOLD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-primary text-primary text-sm sm:text-base font-semibold hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all"
+          >
+            Get Gold — $26.99/mo
           </a>
         </div>
 
