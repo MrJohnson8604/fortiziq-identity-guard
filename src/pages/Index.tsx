@@ -17,10 +17,12 @@ const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 // Renders children only when the placeholder scrolls near the viewport
 const LazySection = ({
   children,
+  id,
   minHeight = "400px",
   rootMargin = "300px",
 }: {
   children: React.ReactNode;
+  id?: string;
   minHeight?: string;
   rootMargin?: string;
 }) => {
@@ -44,7 +46,7 @@ const LazySection = ({
   }, [visible, rootMargin]);
 
   return (
-    <div ref={ref} style={!visible ? { minHeight } : undefined}>
+    <div id={id} ref={ref} className="scroll-mt-16" style={!visible ? { minHeight } : undefined}>
       {visible ? (
         <Suspense fallback={<div style={{ minHeight }} />}>{children}</Suspense>
       ) : null}
@@ -68,11 +70,11 @@ const Index = () => {
       <main>
         <Hero />
         <LazySection><FearRelief /></LazySection>
-        <LazySection><HowItWorks /></LazySection>
-        <LazySection><Features /></LazySection>
-        <LazySection><Pricing /></LazySection>
+        <LazySection id="how"><HowItWorks /></LazySection>
+        <LazySection id="features"><Features /></LazySection>
+        <LazySection id="pricing"><Pricing /></LazySection>
         <LazySection><Testimonials /></LazySection>
-        <LazySection><FAQ /></LazySection>
+        <LazySection id="faq"><FAQ /></LazySection>
         <LazySection minHeight="200px"><PreFooterCTA /></LazySection>
       </main>
       <LazySection minHeight="200px"><Footer /></LazySection>
