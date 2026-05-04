@@ -7,11 +7,11 @@ const faqs = [
   },
   {
     q: "What's the difference between Gold and Platinum?",
-    a: "Gold ($26.99/mo) includes 1-bureau credit monitoring, the full Identity Bundle, $1M insurance, and US-based resolution. Platinum ($36.99/mo) upgrades you to 3-bureau credit monitoring and reporting across Experian, Equifax, and TransUnion — giving you the most complete view of your credit profile possible.",
+    a: "Gold ($21.99/mo) includes 1-bureau credit monitoring, the full Identity Bundle, $1M insurance, and US-based resolution. Platinum ($28.99/mo) upgrades you to 3-bureau credit monitoring and reporting across Experian, Equifax, and TransUnion — giving you the most complete view of your credit profile possible.",
   },
   {
-    q: "It's $26.99 or $36.99 per month — what exactly am I paying for?",
-    a: "Your monthly subscription covers 24/7 monitoring across the dark web, credit bureaus, and your identity bundle (SSN, bank accounts, driver's license, passport, medical ID, email, phone, and more), plus instant alerts the moment something changes. Gold ($26.99) gives you single-bureau credit monitoring; Platinum ($36.99) covers all three bureaus (Experian, Equifax, TransUnion). Both plans include the credit score simulator, US-based resolution specialists, and up to $1M in identity theft insurance underwritten by AIG.",
+    q: "It's $21.99 or $28.99 per month — what exactly am I paying for?",
+    a: "Your monthly subscription covers 24/7 monitoring across the dark web, credit bureaus, and your identity bundle (SSN, bank accounts, driver's license, passport, medical ID, email, phone, and more), plus instant alerts the moment something changes. Gold ($21.99) gives you single-bureau credit monitoring; Platinum ($28.99) covers all three bureaus (Experian, Equifax, TransUnion). Both plans include the credit score simulator, US-based resolution specialists, and up to $1M in identity theft insurance underwritten by AIG.",
   },
   {
     q: "What do I do if I think my identity is already stolen?",
