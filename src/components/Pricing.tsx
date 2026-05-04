@@ -6,7 +6,7 @@ const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/
 const plans = [
   {
     name: "Platinum",
-    price: "36.99",
+    price: "28.99",
     anchor: "Best value — 3x the coverage",
     tagline: "Maximum protection across all three bureaus.",
     features: [
@@ -22,7 +22,7 @@ const plans = [
   },
   {
     name: "Gold",
-    price: "26.99",
+    price: "21.99",
     anchor: "Less than $1/day",
     tagline: "Essential identity protection for individuals.",
     features: [
