@@ -47,8 +47,8 @@ const TermsOfService = () => {
           <section>
             <h2 className="text-2xl font-display font-semibold text-foreground mb-3">3. Subscription & Billing</h2>
             <p className="mb-3">
-              FortizIQ subscriptions are billed monthly at the rate displayed at signup ($26.99/mo for Gold,
-              $36.99/mo for Platinum). Subscriptions auto-renew until canceled.
+              FortizIQ subscriptions are billed monthly at the rate displayed at signup ($21.99/mo for Gold,
+              $28.99/mo for Platinum). Subscriptions auto-renew until canceled.
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>You may cancel anytime from your account dashboard with no cancellation fee.</li>
