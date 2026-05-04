@@ -2,17 +2,34 @@ import { useEffect, lazy, Suspense, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 
+// Auto-recover from stale chunk errors after a deploy by reloading once.
+const lazyWithRetry = <T,>(factory: () => Promise<{ default: React.ComponentType<T> }>) =>
+  lazy(async () => {
+    try {
+      return await factory();
+    } catch (err) {
+      const key = "chunk-reload-attempted";
+      if (typeof window !== "undefined" && !sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+        // Return a never-resolving promise while the page reloads.
+        return await new Promise<{ default: React.ComponentType<T> }>(() => {});
+      }
+      throw err;
+    }
+  });
+
 // Lazy-load below-the-fold components
-const FearRelief = lazy(() => import("@/components/FearRelief"));
-const HowItWorks = lazy(() => import("@/components/HowItWorks"));
-const Features = lazy(() => import("@/components/Features"));
-const Pricing = lazy(() => import("@/components/Pricing"));
-const Testimonials = lazy(() => import("@/components/Testimonials"));
-const FAQ = lazy(() => import("@/components/FAQ"));
-const PreFooterCTA = lazy(() => import("@/components/PreFooterCTA"));
-const Footer = lazy(() => import("@/components/Footer"));
-const SocialProofToast = lazy(() => import("@/components/SocialProofToast"));
-const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+const FearRelief = lazyWithRetry(() => import("@/components/FearRelief"));
+const HowItWorks = lazyWithRetry(() => import("@/components/HowItWorks"));
+const Features = lazyWithRetry(() => import("@/components/Features"));
+const Pricing = lazyWithRetry(() => import("@/components/Pricing"));
+const Testimonials = lazyWithRetry(() => import("@/components/Testimonials"));
+const FAQ = lazyWithRetry(() => import("@/components/FAQ"));
+const PreFooterCTA = lazyWithRetry(() => import("@/components/PreFooterCTA"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
+const SocialProofToast = lazyWithRetry(() => import("@/components/SocialProofToast"));
+const ExitIntentPopup = lazyWithRetry(() => import("@/components/ExitIntentPopup"));
 
 // Renders children only when the placeholder scrolls near the viewport
 const LazySection = ({
