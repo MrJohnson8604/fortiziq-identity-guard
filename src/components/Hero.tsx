@@ -65,12 +65,13 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col items-center mb-4 -mt-2 animate-fade-up" style={{ animationDelay: "0.25s" }}>
-          <p className="text-xs sm:text-sm text-muted-foreground text-center mb-2">
+          <p className="text-xs sm:text-sm text-muted-foreground text-center mb-1">
             Not ready for a monthly plan?
           </p>
+          <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
           <a
             href="#credit-report-info"
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/40 bg-card/40 backdrop-blur text-sm font-semibold text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all"
+            className="mt-1 inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-sm font-semibold text-primary hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
             3-Bureau Credit Report + Scores — $20 one-time →
           </a>
