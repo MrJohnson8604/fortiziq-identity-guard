@@ -9,7 +9,7 @@ const Navbar = () => {
     { href: "/#how", label: "How it Works" },
     { href: "/#features", label: "Features" },
     { href: "/#pricing", label: "Pricing" },
-    { href: "/credit-report", label: "Credit Report" },
+    { href: "/#credit-report-info", label: "Credit Report" },
     { href: "/#faq", label: "FAQ" },
   ];
   return (

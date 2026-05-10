@@ -10,6 +10,14 @@ const faqs = [
     a: "Gold ($21.99/mo) includes 1-bureau credit monitoring, the full Identity Bundle, $1M insurance, and US-based resolution. Platinum ($28.99/mo) upgrades you to 3-bureau credit monitoring and reporting across Experian, Equifax, and TransUnion — giving you the most complete view of your credit profile possible.",
   },
   {
+    q: "What is the one-time Credit Report option?",
+    a: "The Credit Report purchase gives you your full credit report AND your credit score from all three credit bureaus — Experian, Equifax, and TransUnion — in a single one-time purchase. There is no subscription and no recurring charge. It is the right choice if you just want to see exactly where things stand right now without committing to a monthly plan.",
+  },
+  {
+    q: "Why does my score matter — isn't the report enough?",
+    a: "Your credit report and your credit score are two separate things. Your report shows your full history. Your score is the number lenders actually use when deciding whether to approve you and what interest rate to charge you. Most places that give you a free report do not include your score. This purchase gives you both — from each of the three bureaus — so you have the complete picture lenders actually see.",
+  },
+  {
     q: "It's $21.99 or $28.99 per month — what exactly am I paying for?",
     a: "Your monthly subscription covers 24/7 monitoring across the dark web, credit bureaus, and your identity bundle (SSN, bank accounts, driver's license, passport, medical ID, email, phone, and more), plus instant alerts the moment something changes. Gold ($21.99) gives you single-bureau credit monitoring; Platinum ($28.99) covers all three bureaus (Experian, Equifax, TransUnion). Both plans include the credit score simulator, US-based resolution specialists, and up to $1M in identity theft insurance underwritten by AIG.",
   },

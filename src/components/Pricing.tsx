@@ -2,6 +2,7 @@ import { Check, Sparkles } from "lucide-react";
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
 const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DofPrDoav76redcYszZJ4AG5oCoWuMHuByvustiwWeANtu6mgZxNTn7newhFpakE+znkfLUU9Ubq6+hsEzEo/P23blW7u34KtSt0OasuwlkN0g==";
+const REPORT_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ==";
 
 const plans = [
   {
@@ -48,13 +49,16 @@ const Pricing = () => {
           <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">Pricing</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Choose your level of protection</h2>
           <p className="text-muted-foreground text-base sm:text-lg">Cancel anytime. No hidden fees. Backed by AIG.</p>
+          <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto mt-4">
+            Need a monthly plan? Choose Platinum or Gold. Just want to check your credit right now? The one-time Credit Report option has you covered — no subscription required.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl p-6 sm:p-8 md:p-10 ${
+              className={`relative rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col ${
                 p.popular
                   ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary animate-pulse-border"
                   : "card-tech"
@@ -82,7 +86,7 @@ const Pricing = () => {
                 <span className="text-muted-foreground text-sm sm:text-base">/month</span>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-8 flex-1">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <div className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center">
@@ -110,6 +114,51 @@ const Pricing = () => {
               </p>
             </div>
           ))}
+
+          {/* One-time Credit Report card */}
+          <div className="relative rounded-3xl p-6 sm:p-8 md:p-10 card-tech flex flex-col">
+            <div className="mb-5 sm:mb-6">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">Credit Report</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">One-time purchase. No monthly fee.</p>
+            </div>
+
+            <p className="text-xs text-primary font-semibold mb-1">Just need a snapshot? Start here.</p>
+            <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
+              <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
+              <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{"{{REPORT_PRICE}}"}</span>
+              <span className="text-muted-foreground text-sm sm:text-base">one-time</span>
+            </div>
+
+            <ul className="space-y-4 mb-8 flex-1">
+              {[
+                "Experian Credit Report + Score",
+                "Equifax Credit Report + Score",
+                "TransUnion Credit Report + Score",
+                "All 3 scores included — not just the reports",
+                "Delivered instantly once your identity is confirmed",
+                "One charge only — no renewal, no subscription",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <div className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center">
+                    <Check className="h-3 w-3 text-primary" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm text-foreground/90 leading-relaxed">{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={REPORT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center px-6 py-4 rounded-full font-semibold transition-all border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
+            >
+              Get My Reports + Scores
+            </a>
+            <p className="text-center text-xs text-muted-foreground mt-3">
+              One-time charge only. No subscription. No renewal.
+            </p>
+          </div>
         </div>
       </div>
     </section>
