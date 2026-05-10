@@ -90,6 +90,7 @@ const Index = () => {
         <LazySection><FearRelief /></LazySection>
         <LazySection id="how"><HowItWorks /></LazySection>
         <LazySection id="features"><Features /></LazySection>
+        <LazySection><CreditReportInfo /></LazySection>
         <LazySection id="pricing"><Pricing /></LazySection>
         <LazySection><Testimonials /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
