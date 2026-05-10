@@ -12,7 +12,7 @@ const CTA = ({ children, className = "" }: { children: React.ReactNode; classNam
     href={PURCHASE_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className={`inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow ${className}`}
+    className={`inline-flex max-w-full items-center justify-center text-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow ${className}`}
   >
     {children}
   </a>
