@@ -71,9 +71,11 @@ const Hero = () => {
           <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
           <a
             href="#credit-report-info"
-            className="mt-1 inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-sm font-semibold text-primary hover:bg-primary/10 transition-colors animate-glow-pulse"
+            className="mt-1 inline-flex flex-wrap max-w-[92vw] items-center justify-center text-center px-4 sm:px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-xs sm:text-sm font-semibold text-primary leading-snug hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
-            3-Bureau Credit Report — $20, No Subscription →
+            <span className="whitespace-nowrap">3-Bureau Credit Report</span>
+            <span className="mx-1.5 opacity-60">·</span>
+            <span className="whitespace-nowrap">$20, No Subscription →</span>
           </a>
         </div>
 
