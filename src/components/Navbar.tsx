@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/fortiziq-shield.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: "#how", label: "How it Works" },
-    { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#faq", label: "FAQ" },
+    { href: "/#how", label: "How it Works" },
+    { href: "/#features", label: "Features" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/credit-report", label: "Credit Report" },
+    { href: "/#faq", label: "FAQ" },
   ];
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-primary/10">
