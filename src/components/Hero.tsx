@@ -64,15 +64,17 @@ const Hero = () => {
           </a>
         </div>
 
-        <p className="text-xs sm:text-sm text-muted-foreground text-center mb-4 -mt-2 animate-fade-up" style={{ animationDelay: "0.25s" }}>
-          Not ready for a monthly plan?
+        <div className="flex flex-col items-center mb-4 -mt-2 animate-fade-up" style={{ animationDelay: "0.25s" }}>
+          <p className="text-xs sm:text-sm text-muted-foreground text-center mb-2">
+            Not ready for a monthly plan?
+          </p>
           <a
             href="#credit-report-info"
-            className="text-primary font-semibold hover:underline transition-colors ml-1"
+            className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/40 bg-card/40 backdrop-blur text-sm font-semibold text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all"
           >
-            Get your 3-Bureau Credit Report + Scores — one-time →
+            3-Bureau Credit Report + Scores — $20 one-time →
           </a>
-        </p>
+        </div>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-12 sm:mb-14 text-xs">
           {microBadges.map((b) => (
