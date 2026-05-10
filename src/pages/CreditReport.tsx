@@ -12,7 +12,7 @@ const CTA = ({ children, className = "" }: { children: React.ReactNode; classNam
     href={PURCHASE_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className={`inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow ${className}`}
+    className={`inline-flex max-w-full items-center justify-center text-center px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-shadow ${className}`}
   >
     {children}
   </a>
@@ -138,7 +138,7 @@ const CreditReport = () => {
             Each bureau is a separate company that tracks your credit independently. Here's exactly what this one purchase includes:
           </p>
 
-          <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-6">
             {bureaus.map((b) => (
               <div key={b.name} className="relative rounded-2xl p-6 sm:p-7 bg-gradient-to-b from-primary/10 to-card border-2 border-primary/40 hover:border-primary transition-all">
                 <div className="flex items-center gap-2 mb-4">
@@ -185,7 +185,7 @@ const CreditReport = () => {
 
           <div className="card-tech rounded-2xl overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full min-w-[640px] text-sm">
                 <thead>
                   <tr className="border-b border-primary/20 bg-primary/5">
                     <th className="text-left p-4 font-display font-bold">Option</th>
@@ -230,7 +230,7 @@ const CreditReport = () => {
             <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">How it Works</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Three Simple Steps to Your Full Credit Picture</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {steps.map((s, i) => (
               <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-6 sm:p-7 relative">
                 <div className="flex items-center justify-between mb-4">
