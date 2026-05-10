@@ -13,8 +13,8 @@ const plans = [
     features: [
       "3-Bureau Credit Report & Score",
       "3-Bureau Credit Monitoring (Experian, Equifax, TransUnion)",
-      "Identity Bundle (SSN, Bank Accounts, Credit/Debit, Driver's License, Medical ID, Passport, Email, Phone, NCOA, Sex Offender)",
-      "US-Based Resolution / $1M Protection",
+      "Identity Bundle (Social Security Number, Bank Accounts, Credit/Debit Cards, Driver's License, Medical Identification, Passport, Email, Phone, National Change of Address, Sex Offender)",
+      "United States-Based Resolution / $1 Million Protection",
       "Credit Score Simulator",
     ],
     cta: "Start Platinum Protection",
@@ -29,8 +29,8 @@ const plans = [
     features: [
       "1-Bureau Credit Monitoring",
       "Single Bureau Credit Report",
-      "Identity Bundle (SSN, Bank Accounts, Credit/Debit, Driver's License, Medical ID, Passport, Email, Phone, NCOA, Sex Offender)",
-      "US-Based Resolution / $1M Protection",
+      "Identity Bundle (Social Security Number, Bank Accounts, Credit/Debit Cards, Driver's License, Medical Identification, Passport, Email, Phone, National Change of Address, Sex Offender)",
+      "United States-Based Resolution / $1 Million Protection",
       "Credit Score Simulator",
     ],
     cta: "Start Gold Protection",
@@ -125,7 +125,7 @@ const Pricing = () => {
             <p className="text-xs text-primary font-semibold mb-1">Just need a snapshot? Start here.</p>
             <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
               <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
-              <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{"{{REPORT_PRICE}}"}</span>
+              <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">20</span>
               <span className="text-muted-foreground text-sm sm:text-base">one-time</span>
             </div>
 
