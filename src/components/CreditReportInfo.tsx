@@ -106,7 +106,7 @@ const CreditReportInfo = () => {
 
         {/* What's included cards */}
         <h3 className="text-center font-semibold text-lg mb-8">What This One Purchase Gives You</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {bureauCards.map((c) => (
             <div key={c.title} className="card-tech rounded-3xl p-6 sm:p-8">
               <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/40 flex items-center justify-center mb-4">
@@ -125,7 +125,7 @@ const CreditReportInfo = () => {
         <h3 className="text-center font-semibold text-lg mt-16 mb-6">How Does FortizIQ Compare?</h3>
         <div className="max-w-4xl mx-auto card-tech rounded-3xl overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full min-w-[640px] text-sm">
               <thead>
                 <tr className="border-b border-primary/15 text-foreground">
                   <th className="text-left p-4 font-semibold">Option</th>
@@ -199,7 +199,7 @@ const CreditReportInfo = () => {
             href={REPORT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 rounded-full font-semibold bg-primary text-primary-foreground hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-all"
+            className="inline-block max-w-full px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold bg-primary text-primary-foreground text-sm sm:text-base hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-all"
           >
             Get My Reports + Scores Now →
           </a>

@@ -138,7 +138,7 @@ const CreditReport = () => {
             Each bureau is a separate company that tracks your credit independently. Here's exactly what this one purchase includes:
           </p>
 
-          <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-6">
             {bureaus.map((b) => (
               <div key={b.name} className="relative rounded-2xl p-6 sm:p-7 bg-gradient-to-b from-primary/10 to-card border-2 border-primary/40 hover:border-primary transition-all">
                 <div className="flex items-center gap-2 mb-4">
@@ -185,7 +185,7 @@ const CreditReport = () => {
 
           <div className="card-tech rounded-2xl overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full min-w-[640px] text-sm">
                 <thead>
                   <tr className="border-b border-primary/20 bg-primary/5">
                     <th className="text-left p-4 font-display font-bold">Option</th>
