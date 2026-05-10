@@ -49,14 +49,15 @@ const Navbar = () => {
         </a>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)} className="text-sm text-muted-foreground hover:text-primary transition-colors">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href="#pricing"
+            href="/#pricing"
+            onClick={(e) => handleNavClick(e, "/#pricing")}
             className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:shadow-[0_0_24px_hsl(var(--primary)/0.6)] transition-shadow"
           >
             Get Protected
