@@ -230,7 +230,7 @@ const CreditReport = () => {
             <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider mb-3">How it Works</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Three Simple Steps to Your Full Credit Picture</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {steps.map((s, i) => (
               <div key={s.title} className="card-tech card-tech-hover rounded-2xl p-6 sm:p-7 relative">
                 <div className="flex items-center justify-between mb-4">
