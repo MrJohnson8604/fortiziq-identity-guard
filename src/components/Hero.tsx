@@ -11,10 +11,10 @@ const trustItems = [
 ];
 
 const microBadges = [
-  { icon: ShieldCheck, label: "SOC 2 Compliant" },
-  { icon: BadgeCheck, label: "AIG-Backed Insurance" },
-  { icon: Headphones, label: "US-Based Specialists" },
-  { icon: RefreshCw, label: "Cancel Anytime" },
+  { icon: ShieldCheck, label: "Independently Verified & Secure" },
+  { icon: BadgeCheck, label: "$1M Identity Theft Coverage" },
+  { icon: Headphones, label: "Live US-Based Recovery Team" },
+  { icon: RefreshCw, label: "Cancel Anytime — No Fees" },
 ];
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
@@ -63,6 +63,16 @@ const Hero = () => {
             Get Gold — $21.99/mo
           </a>
         </div>
+
+        <p className="text-xs sm:text-sm text-muted-foreground text-center mb-4 -mt-2 animate-fade-up" style={{ animationDelay: "0.25s" }}>
+          Not ready for a monthly plan?
+          <a
+            href="#credit-report-info"
+            className="text-primary font-semibold hover:underline transition-colors ml-1"
+          >
+            Get your 3-Bureau Credit Report + Scores — one-time →
+          </a>
+        </p>
 
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-12 sm:mb-14 text-xs">
           {microBadges.map((b) => (
