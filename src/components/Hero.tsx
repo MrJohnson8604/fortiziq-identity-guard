@@ -73,7 +73,7 @@ const Hero = () => {
             href="#credit-report-info"
             className="mt-1 inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-sm font-semibold text-primary hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
-            3-Bureau Credit Report + Scores — $20 one-time →
+            Get 3-Bureau Credit Report + Scores — $20 One-Time Payment (No Subscription) →
           </a>
         </div>
 
