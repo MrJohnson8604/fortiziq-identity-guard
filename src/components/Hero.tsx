@@ -70,7 +70,9 @@ const Hero = () => {
           </p>
           <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
           <a
-            href="#credit-report-info"
+            href="https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ=="
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-1 inline-flex flex-wrap max-w-[92vw] items-center justify-center text-center px-4 sm:px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-xs sm:text-sm font-semibold text-primary leading-snug hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
             <span className="whitespace-nowrap">3-Bureau Credit Report</span>
