@@ -80,15 +80,15 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, l.href)}
                 className="px-3 py-3 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href="#pricing"
-              onClick={() => setOpen(false)}
+              href="/#pricing"
+              onClick={(e) => handleNavClick(e, "/#pricing")}
               className="sm:hidden mt-2 inline-flex items-center justify-center px-4 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold"
             >
               Get Protected
