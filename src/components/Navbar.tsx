@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/fortiziq-shield.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const links = [
     { href: "/#how", label: "How it Works" },
     { href: "/#features", label: "Features" },
@@ -12,6 +14,32 @@ const Navbar = () => {
     { href: "/#credit-report-info", label: "Credit Report" },
     { href: "/#faq", label: "FAQ" },
   ];
+
+  const scrollToId = (id: string) => {
+    const attempt = (tries = 20) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (tries > 0) {
+        setTimeout(() => attempt(tries - 1), 100);
+      }
+    };
+    attempt();
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const id = href.split("#")[1];
+    if (!id) return;
+    e.preventDefault();
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/#" + id);
+      setTimeout(() => scrollToId(id), 50);
+    } else {
+      history.replaceState(null, "", "#" + id);
+      scrollToId(id);
+    }
+  };
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-primary/10">
       <div className="container flex items-center justify-between h-16">
@@ -21,14 +49,15 @@ const Navbar = () => {
         </a>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)} className="text-sm text-muted-foreground hover:text-primary transition-colors">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href="#pricing"
+            href="/#pricing"
+            onClick={(e) => handleNavClick(e, "/#pricing")}
             className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:shadow-[0_0_24px_hsl(var(--primary)/0.6)] transition-shadow"
           >
             Get Protected
@@ -51,15 +80,15 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, l.href)}
                 className="px-3 py-3 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href="#pricing"
-              onClick={() => setOpen(false)}
+              href="/#pricing"
+              onClick={(e) => handleNavClick(e, "/#pricing")}
               className="sm:hidden mt-2 inline-flex items-center justify-center px-4 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold"
             >
               Get Protected
