@@ -1,16 +1,21 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import logo from "@/assets/fortiziq-shield.png";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
-    document.title = "Privacy Policy | FortizIQ";
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Privacy Policy | FortizIQ"
+        description="How FortizIQ collects, uses, discloses, and safeguards your personal information across our identity protection and credit monitoring services."
+        path="/privacy-policy"
+      />
       <header className="border-b border-primary/15">
         <div className="container py-5 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
