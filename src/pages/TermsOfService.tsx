@@ -1,16 +1,21 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import logo from "@/assets/fortiziq-shield.png";
 
 const TermsOfService = () => {
   useEffect(() => {
-    document.title = "Terms of Service | FortizIQ";
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Terms of Service | FortizIQ"
+        description="The terms governing your subscription and use of FortizIQ identity protection, credit monitoring, and one-time credit report services."
+        path="/terms-of-service"
+      />
       <header className="border-b border-primary/15">
         <div className="container py-5 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">

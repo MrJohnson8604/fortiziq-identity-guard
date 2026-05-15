@@ -3,6 +3,8 @@ import { FileText, BarChart3, Lock, Zap, CheckCircle2, MousePointerClick, Shield
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
+import SEO from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 
 const PURCHASE_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ==";
@@ -73,11 +75,47 @@ const faqs = [
 
 const CreditReport = () => {
   useEffect(() => {
-    document.title = "3-Bureau Credit Report + Scores | FortizIQ";
+    window.scrollTo(0, 0);
   }, []);
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "FortizIQ 3-Bureau Credit Report + Scores",
+    description:
+      "One-time purchase of your full Experian, Equifax, and TransUnion credit reports plus your score from all three bureaus. No subscription.",
+    brand: { "@type": "Brand", name: "FortizIQ" },
+    offers: {
+      "@type": "Offer",
+      price: "20.00",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: "https://fortiziq.com/credit-report",
+    },
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="3-Bureau Credit Report + Scores — $20 One-Time | FortizIQ"
+        description="Get your full Experian, Equifax, and TransUnion credit reports plus all three scores in one $20 purchase. No subscription, no recurring charges."
+        path="/credit-report"
+        ogType="product"
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
+      </Helmet>
       <Navbar />
 
       {/* HERO */}

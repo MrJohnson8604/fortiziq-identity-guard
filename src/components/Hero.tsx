@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
 
         <div className="flex justify-center mb-6 animate-float-slow">
-          <img src={shield} alt="FortizIQ shield" className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 drop-shadow-[0_0_30px_hsl(194_100%_50%/0.5)]" />
+          <img src={shield} alt="FortizIQ shield" width={96} height={96} fetchPriority="high" decoding="async" className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 drop-shadow-[0_0_30px_hsl(194_100%_50%/0.5)]" />
         </div>
 
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 sm:mb-6 animate-fade-up">

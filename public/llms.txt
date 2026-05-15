@@ -1,0 +1,10 @@
+# FortizIQ
+
+> FortizIQ provides identity theft protection, 3-bureau credit monitoring, dark web monitoring, and up to $1M AIG-backed identity theft insurance with US-based recovery specialists. Plans start at $21.99/mo, plus an optional $20 one-time 3-bureau credit report.
+
+## Pages
+
+- [Home](/): Identity protection plans (Gold $21.99/mo, Platinum $28.99/mo), features, pricing, and FAQ.
+- [3-Bureau Credit Report](/credit-report): One-time $20 purchase for full Experian, Equifax, and TransUnion reports plus scores. No subscription.
+- [Privacy Policy](/privacy-policy): How FortizIQ collects, uses, and protects user data.
+- [Terms of Service](/terms-of-service): Terms governing use of FortizIQ services.

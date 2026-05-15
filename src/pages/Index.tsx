@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import SEO from "@/components/SEO";
 
 // Auto-recover from stale chunk errors after a deploy by reloading once.
 const lazyWithRetry = <T,>(factory: () => Promise<{ default: React.ComponentType<T> }>) =>
@@ -84,6 +85,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="FortizIQ | Identity Protection & Credit Monitoring"
+        description="FortizIQ monitors your credit, SSN, and the dark web 24/7. Up to $1M identity theft coverage with US-based recovery specialists. Plans from $21.99/mo."
+        path="/"
+      />
       <Navbar />
       <main>
         <Hero />
