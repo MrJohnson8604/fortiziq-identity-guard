@@ -3,6 +3,8 @@ import { FileText, BarChart3, Lock, Zap, CheckCircle2, MousePointerClick, Shield
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
+import SEO from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 
 const PURCHASE_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ==";
