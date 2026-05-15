@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import SEO from "@/components/SEO";
 
 // Auto-recover from stale chunk errors after a deploy by reloading once.
 const lazyWithRetry = <T,>(factory: () => Promise<{ default: React.ComponentType<T> }>) =>
