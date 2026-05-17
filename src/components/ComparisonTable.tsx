@@ -2,11 +2,11 @@ import { Check, X } from "lucide-react";
 
 const rows: { label: string; fortiziq: boolean | string; lifelock: boolean | string; identityforce: boolean | string }[] = [
   { label: "3-Bureau Credit Monitoring", fortiziq: true, lifelock: "Top tier only", identityforce: true },
-  { label: "3-Bureau Credit Report + Scores (one-time)", fortiziq: "$20", lifelock: false, identityforce: false },
+  { label: "3-Bureau Report + Scores (one-time)", fortiziq: "$20", lifelock: false, identityforce: false },
   { label: "$1M Identity Theft Insurance", fortiziq: true, lifelock: true, identityforce: true },
   { label: "US-Based Recovery Specialists", fortiziq: true, lifelock: true, identityforce: true },
   { label: "Dark Web Monitoring", fortiziq: true, lifelock: true, identityforce: true },
-  { label: "No Long-Term Contract", fortiziq: true, lifelock: "Annual push", identityforce: "Annual push" },
+  { label: "No Long-Term Contract", fortiziq: true, lifelock: "Annual only", identityforce: "Annual only" },
   { label: "Starting Price", fortiziq: "$21.99/mo", lifelock: "$29.99/mo", identityforce: "$29.90/mo" },
 ];
 
@@ -46,25 +46,25 @@ const ComparisonTable = () => {
         </div>
 
         <div className="rounded-3xl border border-primary/20 bg-card/40 backdrop-blur overflow-hidden">
-          <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] sm:grid-cols-[1.6fr_1fr_1fr_1fr] text-xs sm:text-sm">
+          <div className="grid grid-cols-[1.3fr_0.9fr_0.9fr_0.9fr] sm:grid-cols-[1.6fr_1fr_1fr_1fr] text-[11px] sm:text-sm">
             {/* Header */}
-            <div className="p-3 sm:p-5 bg-muted/20 text-muted-foreground font-semibold">Feature</div>
-            <div className="p-3 sm:p-5 bg-primary/10 text-center font-display font-bold text-primary border-x border-primary/20">
+            <div className="p-2 sm:p-5 bg-muted/20 text-muted-foreground font-semibold break-words">Feature</div>
+            <div className="p-2 sm:p-5 bg-primary/10 text-center font-display font-bold text-primary border-x border-primary/20 break-words">
               FortizIQ
             </div>
-            <div className="p-3 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground">LifeLock</div>
-            <div className="p-3 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground">IdentityForce</div>
+            <div className="p-2 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground break-words">LifeLock</div>
+            <div className="p-2 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground break-words leading-tight">IdentityForce</div>
 
             {rows.map((r, i) => (
               <div key={r.label} className="contents">
-                <div className={`p-3 sm:p-5 text-foreground/90 ${i % 2 === 0 ? "bg-background/30" : ""}`}>{r.label}</div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center bg-primary/5 border-x border-primary/20 ${i % 2 === 0 ? "bg-primary/10" : ""}`}>
+                <div className={`p-2 sm:p-5 text-foreground/90 break-words ${i % 2 === 0 ? "bg-background/30" : ""}`}>{r.label}</div>
+                <div className={`p-2 sm:p-5 flex items-center justify-center bg-primary/5 border-x border-primary/20 ${i % 2 === 0 ? "bg-primary/10" : ""}`}>
                   <Cell value={r.fortiziq} highlight />
                 </div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
+                <div className={`p-2 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
                   <Cell value={r.lifelock} />
                 </div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
+                <div className={`p-2 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
                   <Cell value={r.identityforce} />
                 </div>
               </div>
