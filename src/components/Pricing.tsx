@@ -51,6 +51,51 @@ const REPORT_PLAN = {
 };
 
 const Pricing = () => {
+  const ctaRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const impressionsFiredRef = useRef<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    Object.entries(ctaRefs.current).forEach(([id, el]) => {
+      if (!el || impressionsFiredRef.current[id]) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (
+              entry.isIntersecting &&
+              entry.intersectionRatio >= 0.5 &&
+              !impressionsFiredRef.current[id]
+            ) {
+              impressionsFiredRef.current[id] = true;
+              track("cta_impression", {
+                cta_id: id,
+                cta_location: "pricing",
+                device: getDevice(),
+                viewport_width: getViewportWidth(),
+              });
+              observer.disconnect();
+            }
+          }
+        },
+        { threshold: [0.5] }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const handleCtaClick = (id: string, destination: string, price: string) => {
+    track("cta_click", {
+      cta_id: id,
+      cta_location: "pricing",
+      destination,
+      price,
+      device: getDevice(),
+      viewport_width: getViewportWidth(),
+    });
+  };
+
   return (
     <section id="pricing" className="py-20 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-primary/5 blur-3xl" />
