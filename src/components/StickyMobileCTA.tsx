@@ -74,7 +74,7 @@ const StickyMobileCTA = () => {
           data-analytics-id="sticky_mobile_credit_report"
           className="shrink-0 px-3.5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold active:scale-95 transition-transform animate-glow-pulse whitespace-nowrap"
         >
-          {isTiny ? "$20" : "Get · $20"}
+          {isTiny ? "$20" : "Get Scores"}
         </a>
       </div>
     </div>
