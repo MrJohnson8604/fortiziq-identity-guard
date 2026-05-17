@@ -1,7 +1,27 @@
+import { useEffect, useRef } from "react";
 import { ShieldCheck, Users, BadgeCheck, Headphones, Lock, RefreshCw } from "lucide-react";
 import CircuitBackground from "./CircuitBackground";
 import ThreatStats from "./ThreatStats";
 import shield from "@/assets/fortiziq-shield.png";
+
+declare global {
+  interface Window {
+    dataLayer?: any[];
+    gtag?: (...args: any[]) => void;
+    clarity?: (...args: any[]) => void;
+  }
+}
+
+const track = (event: string, params: Record<string, any>) => {
+  try {
+    window.gtag?.("event", event, params);
+    window.dataLayer?.push({ event, ...params });
+    window.clarity?.("event", event);
+  } catch {}
+};
+
+const isMobileViewport = () =>
+  typeof window !== "undefined" && window.matchMedia("(max-width: 639px)").matches;
 
 const trustItems = [
   { icon: Users, label: "1M+ Identities Protected" },
@@ -20,7 +40,48 @@ const microBadges = [
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
 const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DofPrDoav76redcYszZJ4AG5oCoWuMHuByvustiwWeANtu6mgZxNTn7newhFpakE+znkfLUU9Ubq6+hsEzEo/P23blW7u34KtSt0OasuwlkN0g==";
 
+const CREDIT_REPORT_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ==";
+
 const Hero = () => {
+  const creditCtaRef = useRef<HTMLAnchorElement>(null);
+  const impressionFiredRef = useRef(false);
+
+  useEffect(() => {
+    const el = creditCtaRef.current;
+    if (!el || impressionFiredRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !impressionFiredRef.current) {
+            impressionFiredRef.current = true;
+            track("cta_impression", {
+              cta_id: "credit_report_3bureau",
+              cta_location: "hero",
+              device: isMobileViewport() ? "mobile" : "desktop",
+              viewport_width: window.innerWidth,
+            });
+            observer.disconnect();
+          }
+        }
+      },
+      { threshold: [0.5] }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleCreditCtaClick = () => {
+    track("cta_click", {
+      cta_id: "credit_report_3bureau",
+      cta_location: "hero",
+      device: isMobileViewport() ? "mobile" : "desktop",
+      viewport_width: typeof window !== "undefined" ? window.innerWidth : 0,
+      destination: CREDIT_REPORT_URL,
+    });
+  };
+
   return (
     <section className="relative pt-28 pb-20 sm:pt-32 sm:pb-24 md:pt-40 md:pb-32 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <CircuitBackground />
@@ -70,9 +131,12 @@ const Hero = () => {
           </p>
           <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
           <a
-            href="https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ=="
+            ref={creditCtaRef}
+            href={CREDIT_REPORT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleCreditCtaClick}
+            data-analytics-id="credit_report_3bureau"
             className="mt-2 inline-flex flex-col sm:flex-row w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center text-center px-6 sm:px-7 py-4 sm:py-3.5 rounded-2xl sm:rounded-full border-2 border-primary/70 bg-card/50 backdrop-blur text-base sm:text-base font-semibold text-primary leading-tight hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
             <span className="whitespace-nowrap">3-Bureau Credit Report</span>
