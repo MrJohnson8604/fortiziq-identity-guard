@@ -46,14 +46,14 @@ const ComparisonTable = () => {
         </div>
 
         <div className="rounded-3xl border border-primary/20 bg-card/40 backdrop-blur overflow-hidden">
-          <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] sm:grid-cols-[1.6fr_1fr_1fr_1fr] text-xs sm:text-sm">
+          <div className="grid grid-cols-[1.3fr_0.9fr_0.9fr_0.9fr] sm:grid-cols-[1.6fr_1fr_1fr_1fr] text-[11px] sm:text-sm">
             {/* Header */}
-            <div className="p-3 sm:p-5 bg-muted/20 text-muted-foreground font-semibold">Feature</div>
-            <div className="p-3 sm:p-5 bg-primary/10 text-center font-display font-bold text-primary border-x border-primary/20">
+            <div className="p-2 sm:p-5 bg-muted/20 text-muted-foreground font-semibold break-words">Feature</div>
+            <div className="p-2 sm:p-5 bg-primary/10 text-center font-display font-bold text-primary border-x border-primary/20 break-words">
               FortizIQ
             </div>
-            <div className="p-3 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground">LifeLock</div>
-            <div className="p-3 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground">IdentityForce</div>
+            <div className="p-2 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground break-words">LifeLock</div>
+            <div className="p-2 sm:p-5 bg-muted/20 text-center font-semibold text-muted-foreground break-words leading-tight">IdentityForce</div>
 
             {rows.map((r, i) => (
               <div key={r.label} className="contents">
