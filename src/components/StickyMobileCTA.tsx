@@ -7,7 +7,15 @@ const CREDIT_REPORT_URL =
 
 const StickyMobileCTA = () => {
   const [visible, setVisible] = useState(false);
+  const [isTiny, setIsTiny] = useState(false);
   const impressionFired = useRef(false);
+
+  useEffect(() => {
+    const onResize = () => setIsTiny(window.innerWidth < 380);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -46,13 +54,17 @@ const StickyMobileCTA = () => {
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 0.75rem)" }}
       aria-hidden={!visible}
     >
-      <div className="rounded-2xl border-2 border-primary/70 bg-card/95 backdrop-blur-md shadow-[0_-8px_30px_-10px_hsl(var(--primary)/0.5)] p-2.5 flex items-center gap-2.5">
-        <div className="shrink-0 w-10 h-10 rounded-xl bg-primary/15 border border-primary/40 flex items-center justify-center">
-          <FileText className="h-5 w-5 text-primary" />
+      <div className="rounded-2xl border-2 border-primary/70 bg-card/95 backdrop-blur-md shadow-[0_-8px_30px_-10px_hsl(var(--primary)/0.5)] p-2.5 flex items-center gap-2">
+        <div className="shrink-0 w-9 h-9 rounded-xl bg-primary/15 border border-primary/40 flex items-center justify-center">
+          <FileText className="h-4.5 w-4.5 text-primary" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[11px] text-muted-foreground leading-tight">One-time · $20 · No subscription</p>
-          <p className="text-sm font-semibold text-foreground leading-tight">All 3 Reports + All 3 Scores</p>
+          <p className="text-[10px] text-muted-foreground leading-tight">
+            One-time · <span className="font-bold text-primary">$20</span> · No subscription
+          </p>
+          <p className="text-[13px] font-semibold text-foreground leading-tight truncate">
+            {isTiny ? "3 Reports + 3 Scores" : "All 3 Reports + All 3 Scores"}
+          </p>
         </div>
         <a
           href={CREDIT_REPORT_URL}
@@ -60,9 +72,9 @@ const StickyMobileCTA = () => {
           rel="noopener noreferrer"
           onClick={handleClick}
           data-analytics-id="sticky_mobile_credit_report"
-          className="shrink-0 px-4 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-[0_0_24px_hsl(var(--primary)/0.5)] active:scale-95 transition-transform"
+          className="shrink-0 px-3.5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold active:scale-95 transition-transform animate-glow-pulse whitespace-nowrap"
         >
-          Get Scores
+          {isTiny ? "$20" : "Get · $20"}
         </a>
       </div>
     </div>
