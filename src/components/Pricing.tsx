@@ -8,6 +8,7 @@ const REPORT_URL = "https://www.identityprotection-services.com/0.NewAccounts/Re
 
 const plans = [
   {
+    id: "platinum",
     name: "Platinum",
     price: "28.99",
     anchor: "Best value — 3x the coverage",
@@ -24,6 +25,7 @@ const plans = [
     popular: true,
   },
   {
+    id: "gold",
     name: "Gold",
     price: "21.99",
     anchor: "Less than $1/day",
@@ -40,6 +42,13 @@ const plans = [
     popular: false,
   },
 ];
+
+const REPORT_PLAN = {
+  id: "credit_report_3bureau",
+  name: "Credit Report",
+  price: "20",
+  url: REPORT_URL,
+};
 
 const Pricing = () => {
   return (
