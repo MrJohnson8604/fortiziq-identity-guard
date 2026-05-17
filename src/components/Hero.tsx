@@ -131,9 +131,12 @@ const Hero = () => {
           </p>
           <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
           <a
-            href="https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ=="
+            ref={creditCtaRef}
+            href={CREDIT_REPORT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleCreditCtaClick}
+            data-analytics-id="credit_report_3bureau"
             className="mt-2 inline-flex flex-col sm:flex-row w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center text-center px-6 sm:px-7 py-4 sm:py-3.5 rounded-2xl sm:rounded-full border-2 border-primary/70 bg-card/50 backdrop-blur text-base sm:text-base font-semibold text-primary leading-tight hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
             <span className="whitespace-nowrap">3-Bureau Credit Report</span>
