@@ -64,8 +64,8 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="flex flex-col items-center mb-4 -mt-2 animate-fade-up" style={{ animationDelay: "0.25s" }}>
-          <p className="text-xs sm:text-sm text-muted-foreground text-center mb-1">
+        <div className="flex flex-col items-center mb-4 -mt-2 animate-fade-up px-4" style={{ animationDelay: "0.25s" }}>
+          <p className="text-sm sm:text-sm text-muted-foreground text-center mb-1">
             Not ready for a monthly plan?
           </p>
           <div className="text-primary text-xl leading-none animate-arrow-bounce" aria-hidden="true">↓</div>
@@ -73,11 +73,11 @@ const Hero = () => {
             href="https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ=="
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 inline-flex flex-wrap max-w-[92vw] items-center justify-center text-center px-4 sm:px-5 py-2.5 rounded-full border border-primary/60 bg-card/40 backdrop-blur text-xs sm:text-sm font-semibold text-primary leading-snug hover:bg-primary/10 transition-colors animate-glow-pulse"
+            className="mt-2 inline-flex flex-col sm:flex-row w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center text-center px-6 sm:px-7 py-4 sm:py-3.5 rounded-2xl sm:rounded-full border-2 border-primary/70 bg-card/50 backdrop-blur text-base sm:text-base font-semibold text-primary leading-tight hover:bg-primary/10 transition-colors animate-glow-pulse"
           >
             <span className="whitespace-nowrap">3-Bureau Credit Report</span>
-            <span className="mx-1.5 opacity-60">·</span>
-            <span className="whitespace-nowrap">$20, No Subscription →</span>
+            <span className="hidden sm:inline mx-1.5 opacity-60">·</span>
+            <span className="whitespace-nowrap mt-0.5 sm:mt-0 text-sm sm:text-base opacity-90 sm:opacity-100">$20, No Subscription →</span>
           </a>
         </div>
 
