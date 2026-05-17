@@ -2,11 +2,11 @@ import { Check, X } from "lucide-react";
 
 const rows: { label: string; fortiziq: boolean | string; lifelock: boolean | string; identityforce: boolean | string }[] = [
   { label: "3-Bureau Credit Monitoring", fortiziq: true, lifelock: "Top tier only", identityforce: true },
-  { label: "3-Bureau Credit Report + Scores (one-time)", fortiziq: "$20", lifelock: false, identityforce: false },
+  { label: "3-Bureau Report + Scores (one-time)", fortiziq: "$20", lifelock: false, identityforce: false },
   { label: "$1M Identity Theft Insurance", fortiziq: true, lifelock: true, identityforce: true },
   { label: "US-Based Recovery Specialists", fortiziq: true, lifelock: true, identityforce: true },
   { label: "Dark Web Monitoring", fortiziq: true, lifelock: true, identityforce: true },
-  { label: "No Long-Term Contract", fortiziq: true, lifelock: "Annual push", identityforce: "Annual push" },
+  { label: "No Long-Term Contract", fortiziq: true, lifelock: "Annual only", identityforce: "Annual only" },
   { label: "Starting Price", fortiziq: "$21.99/mo", lifelock: "$29.99/mo", identityforce: "$29.90/mo" },
 ];
 
