@@ -157,6 +157,9 @@ const Pricing = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                ref={(el) => { ctaRefs.current[p.id] = el; }}
+                onClick={() => handleCtaClick(p.id, p.url, p.price)}
+                data-analytics-id={p.id}
                 className={`block text-center px-6 py-4 rounded-full font-semibold transition-all ${
                   p.popular
                     ? "bg-primary text-primary-foreground hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)]"
