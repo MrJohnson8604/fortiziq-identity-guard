@@ -1,7 +1,27 @@
+import { useEffect, useRef } from "react";
 import { ShieldCheck, Users, BadgeCheck, Headphones, Lock, RefreshCw } from "lucide-react";
 import CircuitBackground from "./CircuitBackground";
 import ThreatStats from "./ThreatStats";
 import shield from "@/assets/fortiziq-shield.png";
+
+declare global {
+  interface Window {
+    dataLayer?: any[];
+    gtag?: (...args: any[]) => void;
+    clarity?: (...args: any[]) => void;
+  }
+}
+
+const track = (event: string, params: Record<string, any>) => {
+  try {
+    window.gtag?.("event", event, params);
+    window.dataLayer?.push({ event, ...params });
+    window.clarity?.("event", event);
+  } catch {}
+};
+
+const isMobileViewport = () =>
+  typeof window !== "undefined" && window.matchMedia("(max-width: 639px)").matches;
 
 const trustItems = [
   { icon: Users, label: "1M+ Identities Protected" },
