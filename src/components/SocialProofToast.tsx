@@ -90,7 +90,7 @@ const SocialProofToast = () => {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 z-40 max-w-[280px] sm:max-w-xs transition-all duration-500 ${
+      className={`fixed left-4 z-30 max-w-[280px] sm:max-w-xs transition-all duration-500 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] sm:bottom-4 ${
         visible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0 pointer-events-none"
       }`}
     >
