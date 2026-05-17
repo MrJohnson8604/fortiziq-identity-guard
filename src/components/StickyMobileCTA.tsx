@@ -51,8 +51,8 @@ const StickyMobileCTA = () => {
           <FileText className="h-5 w-5 text-primary" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[11px] text-muted-foreground leading-tight">One-time, no subscription</p>
-          <p className="text-sm font-semibold text-foreground leading-tight">3-Bureau Credit Report · $20</p>
+          <p className="text-[11px] text-muted-foreground leading-tight">One-time · $20 · No subscription</p>
+          <p className="text-sm font-semibold text-foreground leading-tight">All 3 Reports + All 3 Scores</p>
         </div>
         <a
           href={CREDIT_REPORT_URL}
@@ -62,7 +62,7 @@ const StickyMobileCTA = () => {
           data-analytics-id="sticky_mobile_credit_report"
           className="shrink-0 px-4 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-[0_0_24px_hsl(var(--primary)/0.5)] active:scale-95 transition-transform"
         >
-          Get Report
+          Get Scores
         </a>
       </div>
     </div>
