@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import { Check, Sparkles } from "lucide-react";
+import { track, getDevice, getViewportWidth } from "@/lib/analytics";
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
 const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DofPrDoav76redcYszZJ4AG5oCoWuMHuByvustiwWeANtu6mgZxNTn7newhFpakE+znkfLUU9Ubq6+hsEzEo/P23blW7u34KtSt0OasuwlkN0g==";
@@ -6,6 +8,7 @@ const REPORT_URL = "https://www.identityprotection-services.com/0.NewAccounts/Re
 
 const plans = [
   {
+    id: "platinum",
     name: "Platinum",
     price: "28.99",
     anchor: "Best value — 3x the coverage",
@@ -22,6 +25,7 @@ const plans = [
     popular: true,
   },
   {
+    id: "gold",
     name: "Gold",
     price: "21.99",
     anchor: "Less than $1/day",
@@ -39,7 +43,59 @@ const plans = [
   },
 ];
 
+const REPORT_PLAN = {
+  id: "credit_report_3bureau",
+  name: "Credit Report",
+  price: "20",
+  url: REPORT_URL,
+};
+
 const Pricing = () => {
+  const ctaRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const impressionsFiredRef = useRef<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    Object.entries(ctaRefs.current).forEach(([id, el]) => {
+      if (!el || impressionsFiredRef.current[id]) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (
+              entry.isIntersecting &&
+              entry.intersectionRatio >= 0.5 &&
+              !impressionsFiredRef.current[id]
+            ) {
+              impressionsFiredRef.current[id] = true;
+              track("cta_impression", {
+                cta_id: id,
+                cta_location: "pricing",
+                device: getDevice(),
+                viewport_width: getViewportWidth(),
+              });
+              observer.disconnect();
+            }
+          }
+        },
+        { threshold: [0.5] }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const handleCtaClick = (id: string, destination: string, price: string) => {
+    track("cta_click", {
+      cta_id: id,
+      cta_location: "pricing",
+      destination,
+      price,
+      device: getDevice(),
+      viewport_width: getViewportWidth(),
+    });
+  };
+
   return (
     <section id="pricing" className="py-20 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-primary/5 blur-3xl" />
@@ -101,6 +157,9 @@ const Pricing = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                ref={(el) => { ctaRefs.current[p.id] = el; }}
+                onClick={() => handleCtaClick(p.id, p.url, p.price)}
+                data-analytics-id={p.id}
                 className={`block text-center px-6 py-4 rounded-full font-semibold transition-all ${
                   p.popular
                     ? "bg-primary text-primary-foreground hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)]"
@@ -148,9 +207,12 @@ const Pricing = () => {
             </ul>
 
             <a
-              href={REPORT_URL}
+              href={REPORT_PLAN.url}
               target="_blank"
               rel="noopener noreferrer"
+              ref={(el) => { ctaRefs.current[REPORT_PLAN.id] = el; }}
+              onClick={() => handleCtaClick(REPORT_PLAN.id, REPORT_PLAN.url, REPORT_PLAN.price)}
+              data-analytics-id={REPORT_PLAN.id}
               className="block text-center px-6 py-4 rounded-full font-semibold transition-all border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
             >
               Get My Reports + Scores
