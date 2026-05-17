@@ -57,14 +57,14 @@ const ComparisonTable = () => {
 
             {rows.map((r, i) => (
               <div key={r.label} className="contents">
-                <div className={`p-3 sm:p-5 text-foreground/90 ${i % 2 === 0 ? "bg-background/30" : ""}`}>{r.label}</div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center bg-primary/5 border-x border-primary/20 ${i % 2 === 0 ? "bg-primary/10" : ""}`}>
+                <div className={`p-2 sm:p-5 text-foreground/90 break-words ${i % 2 === 0 ? "bg-background/30" : ""}`}>{r.label}</div>
+                <div className={`p-2 sm:p-5 flex items-center justify-center bg-primary/5 border-x border-primary/20 ${i % 2 === 0 ? "bg-primary/10" : ""}`}>
                   <Cell value={r.fortiziq} highlight />
                 </div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
+                <div className={`p-2 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
                   <Cell value={r.lifelock} />
                 </div>
-                <div className={`p-3 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
+                <div className={`p-2 sm:p-5 flex items-center justify-center ${i % 2 === 0 ? "bg-background/30" : ""}`}>
                   <Cell value={r.identityforce} />
                 </div>
               </div>
