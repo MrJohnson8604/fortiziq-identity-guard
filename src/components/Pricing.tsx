@@ -207,9 +207,12 @@ const Pricing = () => {
             </ul>
 
             <a
-              href={REPORT_URL}
+              href={REPORT_PLAN.url}
               target="_blank"
               rel="noopener noreferrer"
+              ref={(el) => { ctaRefs.current[REPORT_PLAN.id] = el; }}
+              onClick={() => handleCtaClick(REPORT_PLAN.id, REPORT_PLAN.url, REPORT_PLAN.price)}
+              data-analytics-id={REPORT_PLAN.id}
               className="block text-center px-6 py-4 rounded-full font-semibold transition-all border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
             >
               Get My Reports + Scores
