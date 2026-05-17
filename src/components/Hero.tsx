@@ -40,7 +40,48 @@ const microBadges = [
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
 const PLATINUM_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DofPrDoav76redcYszZJ4AG5oCoWuMHuByvustiwWeANtu6mgZxNTn7newhFpakE+znkfLUU9Ubq6+hsEzEo/P23blW7u34KtSt0OasuwlkN0g==";
 
+const CREDIT_REPORT_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DoeVI/RgAiaiSO1J1IcIJzmMtIvc0QIthpZP+kEIE0FXu3aNkCY/JI6SUo1eBFXjseoNow040w7j9bgtoDs7+vjMniFsETB+Y+gIZ1IrkH8aXQ==";
+
 const Hero = () => {
+  const creditCtaRef = useRef<HTMLAnchorElement>(null);
+  const impressionFiredRef = useRef(false);
+
+  useEffect(() => {
+    const el = creditCtaRef.current;
+    if (!el || impressionFiredRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !impressionFiredRef.current) {
+            impressionFiredRef.current = true;
+            track("cta_impression", {
+              cta_id: "credit_report_3bureau",
+              cta_location: "hero",
+              device: isMobileViewport() ? "mobile" : "desktop",
+              viewport_width: window.innerWidth,
+            });
+            observer.disconnect();
+          }
+        }
+      },
+      { threshold: [0.5] }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleCreditCtaClick = () => {
+    track("cta_click", {
+      cta_id: "credit_report_3bureau",
+      cta_location: "hero",
+      device: isMobileViewport() ? "mobile" : "desktop",
+      viewport_width: typeof window !== "undefined" ? window.innerWidth : 0,
+      destination: CREDIT_REPORT_URL,
+    });
+  };
+
   return (
     <section className="relative pt-28 pb-20 sm:pt-32 sm:pb-24 md:pt-40 md:pb-32 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <CircuitBackground />
