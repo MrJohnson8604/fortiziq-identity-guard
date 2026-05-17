@@ -59,11 +59,11 @@ const StickyMobileCTA = () => {
           <FileText className="h-4.5 w-4.5 text-primary" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[10px] text-muted-foreground leading-tight">
-            One-time · <span className="font-bold text-primary">$20</span> · No subscription
-          </p>
           <p className="text-[13px] font-semibold text-foreground leading-tight truncate">
-            {isTiny ? "3 Reports + 3 Scores" : "All 3 Reports + All 3 Scores"}
+            {isTiny ? "All 3 Scores Now" : "See All 3 Scores Now"}
+          </p>
+          <p className="text-[10px] text-muted-foreground leading-tight truncate">
+            Full report · <span className="font-bold text-primary">$20</span> · No signup
           </p>
         </div>
         <a
@@ -74,7 +74,7 @@ const StickyMobileCTA = () => {
           data-analytics-id="sticky_mobile_credit_report"
           className="shrink-0 px-3.5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold active:scale-95 transition-transform animate-glow-pulse whitespace-nowrap"
         >
-          {isTiny ? "$20" : "Get · $20"}
+          {isTiny ? "$20" : "Get Scores"}
         </a>
       </div>
     </div>
