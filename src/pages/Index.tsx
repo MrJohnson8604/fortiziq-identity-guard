@@ -26,12 +26,14 @@ const HowItWorks = lazyWithRetry(() => import("@/components/HowItWorks"));
 const Features = lazyWithRetry(() => import("@/components/Features"));
 const Pricing = lazyWithRetry(() => import("@/components/Pricing"));
 const CreditReportInfo = lazyWithRetry(() => import("@/components/CreditReportInfo"));
+const ComparisonTable = lazyWithRetry(() => import("@/components/ComparisonTable"));
 const Testimonials = lazyWithRetry(() => import("@/components/Testimonials"));
 const FAQ = lazyWithRetry(() => import("@/components/FAQ"));
 const PreFooterCTA = lazyWithRetry(() => import("@/components/PreFooterCTA"));
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 const SocialProofToast = lazyWithRetry(() => import("@/components/SocialProofToast"));
 const ExitIntentPopup = lazyWithRetry(() => import("@/components/ExitIntentPopup"));
+const StickyMobileCTA = lazyWithRetry(() => import("@/components/StickyMobileCTA"));
 
 // Renders children only when the placeholder scrolls near the viewport
 const LazySection = ({
@@ -98,6 +100,7 @@ const Index = () => {
         <LazySection id="features"><Features /></LazySection>
         <LazySection><CreditReportInfo /></LazySection>
         <LazySection id="pricing"><Pricing /></LazySection>
+        <LazySection><ComparisonTable /></LazySection>
         <LazySection><Testimonials /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
         <LazySection minHeight="200px"><PreFooterCTA /></LazySection>
@@ -106,6 +109,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <SocialProofToast />
         <ExitIntentPopup />
+        <StickyMobileCTA />
       </Suspense>
     </div>
   );
