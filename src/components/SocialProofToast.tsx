@@ -90,10 +90,9 @@ const SocialProofToast = () => {
 
   return (
     <div
-      className={`fixed left-4 z-30 max-w-[280px] sm:max-w-xs transition-all duration-500 bottom-24 sm:bottom-4 ${
+      className={`fixed left-4 z-30 max-w-[280px] sm:max-w-xs transition-all duration-500 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] sm:bottom-4 ${
         visible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0 pointer-events-none"
       }`}
-      style={{ bottom: "calc(env(safe-area-inset-bottom) + 6rem)" }}
     >
       <div className="card-tech rounded-xl px-4 py-3 border-l-4 border-l-primary flex items-start gap-3 shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.4)] relative">
         <div className="shrink-0 mt-0.5 w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center">
