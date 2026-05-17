@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Check, Sparkles } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Check, Sparkles, ShieldCheck, Lock, RefreshCw } from "lucide-react";
 import { track, getDevice, getViewportWidth } from "@/lib/analytics";
 
 const GOLD_URL = "https://www.identityprotection-services.com/0.NewAccounts/Register.aspx?ID=JWsYxCTa8+ui/RTaN3TMEHPjiJ30+ASRm0lMtgV9DodLPeCWi7K3sh2I4WOhajBV2Jg0iQyzrXsK/Y4kuZBv6NQIZTRctrZa56RbaJUa4gQQCDdhxGbv5nTaK+wxXkAIcFJQ0DXoZEpYSNz2IVSs9g==";
@@ -50,9 +50,26 @@ const REPORT_PLAN = {
   url: REPORT_URL,
 };
 
+const ANNUAL_DISCOUNT = 0.2; // 20% off when paid annually
+
 const Pricing = () => {
   const ctaRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const impressionsFiredRef = useRef<Record<string, boolean>>({});
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+
+  const computePrice = (monthly: string) => {
+    const n = parseFloat(monthly);
+    if (billing === "annual") {
+      const discounted = n * (1 - ANNUAL_DISCOUNT);
+      return discounted.toFixed(2);
+    }
+    return monthly;
+  };
+
+  const annualSavings = (monthly: string) => {
+    const n = parseFloat(monthly);
+    return Math.round(n * 12 * ANNUAL_DISCOUNT);
+  };
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -108,6 +125,39 @@ const Pricing = () => {
           <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto mt-4">
             Need a monthly plan? Choose Platinum or Gold. Just want to check your credit right now? The one-time Credit Report option has you covered — no subscription required.
           </p>
+
+          {/* Billing toggle */}
+          <div className="mt-7 inline-flex items-center p-1 rounded-full border border-primary/30 bg-card/60 backdrop-blur text-sm">
+            <button
+              type="button"
+              onClick={() => setBilling("monthly")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors ${
+                billing === "monthly" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-pressed={billing === "monthly"}
+            >
+              Monthly
+            </button>
+            <button
+              type="button"
+              onClick={() => setBilling("annual")}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors inline-flex items-center gap-2 ${
+                billing === "annual" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-pressed={billing === "annual"}
+            >
+              Annual
+              <span className={`text-[10px] px-2 py-0.5 rounded-full ${billing === "annual" ? "bg-primary-foreground/20" : "bg-primary/15 text-primary"}`}>
+                Save 20%
+              </span>
+            </button>
+          </div>
+
+          {/* Guarantee badge */}
+          <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-xs sm:text-sm text-primary font-semibold">
+            <ShieldCheck className="h-4 w-4" />
+            30-Day Money-Back Guarantee
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
@@ -136,10 +186,19 @@ const Pricing = () => {
               </div>
 
               <p className="text-xs text-primary font-semibold mb-1">{p.anchor}</p>
-              <div className="flex items-baseline gap-1.5 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
-                <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
-                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{p.price}</span>
-                <span className="text-muted-foreground text-sm sm:text-base">/month</span>
+              <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-primary/15">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-muted-foreground text-xl sm:text-2xl">$</span>
+                  <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">{computePrice(p.price)}</span>
+                  <span className="text-muted-foreground text-sm sm:text-base">/month</span>
+                </div>
+                {billing === "annual" ? (
+                  <p className="mt-2 text-xs text-primary font-semibold">
+                    Billed annually · Save ${annualSavings(p.price)}/yr
+                  </p>
+                ) : (
+                  <p className="mt-2 text-xs text-muted-foreground">Billed monthly · Cancel anytime</p>
+                )}
               </div>
 
               <ul className="space-y-4 mb-8 flex-1">
@@ -171,6 +230,11 @@ const Pricing = () => {
               <p className="text-center text-xs text-muted-foreground mt-3">
                 No contracts. Cancel anytime. Instant activation.
               </p>
+              <div className="mt-4 flex items-center justify-center gap-3 text-[10px] text-muted-foreground/80">
+                <span className="inline-flex items-center gap-1"><Lock className="h-3 w-3" /> 256-bit SSL</span>
+                <span className="inline-flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> SOC 2</span>
+                <span className="inline-flex items-center gap-1"><RefreshCw className="h-3 w-3" /> Cancel anytime</span>
+              </div>
             </div>
           ))}
 
