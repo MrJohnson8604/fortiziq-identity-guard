@@ -99,7 +99,9 @@ const Index = () => {
     let stableCount = 0;
     const tick = () => {
       attempts++;
-      const el = document.getElementById("pricing");
+      const el =
+        document.getElementById("pricing-cards") ||
+        document.getElementById("pricing");
       if (el) {
         const top = el.getBoundingClientRect().top + window.scrollY;
         if (top === lastTop && top > 0) {
