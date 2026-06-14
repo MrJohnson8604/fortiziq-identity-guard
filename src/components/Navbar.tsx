@@ -14,6 +14,8 @@ const Navbar = () => {
     { href: "/#credit-report-info", label: "Credit Report" },
     { href: "/#faq", label: "FAQ" },
   ];
+  const loginUrl =
+    "https://www.identityprotection-services.com/Login.aspx?ID=JWsYxCTa8+ui/RTaN3TMEN5jaSHXRv89aZJcXwg+25E=";
 
   const scrollToId = (id: string) => {
     const attempt = (tries = 20) => {
@@ -53,6 +55,14 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href={loginUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Log In
+          </a>
         </nav>
         <div className="flex items-center gap-2">
           <a
@@ -86,6 +96,14 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
+            <a
+              href={loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-3 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              Log In
+            </a>
             <a
               href="/#pricing"
               onClick={(e) => handleNavClick(e, "/#pricing")}
