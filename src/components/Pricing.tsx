@@ -392,19 +392,24 @@ const Pricing = () => {
             <p className="text-xs text-primary font-semibold mb-1">
               Just need a snapshot? Start here.
             </p>
-            <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-primary/15">
-              <span className="text-muted-foreground text-xl sm:text-2xl">
-                $
-              </span>
-              <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
-                20
-              </span>
-              <span className="text-muted-foreground text-sm sm:text-base">
-                one-time
-              </span>
+            <div className="mb-6 pb-6 border-b border-primary/15">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-muted-foreground text-xl sm:text-2xl">
+                  $
+                </span>
+                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
+                  20
+                </span>
+                <span className="text-muted-foreground text-sm sm:text-base">
+                  one-time
+                </span>
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                One-time charge · Instant delivery
+              </p>
             </div>
 
-            <a
+            <
               href={REPORT_PLAN.url}
               target="_blank"
               rel="noopener noreferrer"
