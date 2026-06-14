@@ -97,6 +97,14 @@ const Navbar = () => {
               </a>
             ))}
             <a
+              href={loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-3 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              Log In
+            </a>
+            <a
               href="/#pricing"
               onClick={(e) => handleNavClick(e, "/#pricing")}
               className="sm:hidden mt-2 inline-flex items-center justify-center px-4 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold"
