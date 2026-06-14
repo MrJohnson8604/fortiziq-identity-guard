@@ -76,48 +76,40 @@ const LazySection = ({
   );
 };
 
-const HAS_VISITED_KEY = "fortiziq_has_visited_v2";
+const HAS_VISITED_KEY = "fortiziq_has_visited_v3";
 
 const Index = () => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-    if (window.location.hash) return;
 
-    const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
-    if (hasVisited) {
+    const shouldScrollToPricing =
+      window.location.hash === "#pricing" ||
+      (!window.location.hash && !localStorage.getItem(HAS_VISITED_KEY));
+
+    if (!shouldScrollToPricing) {
       window.scrollTo(0, 0);
       return;
     }
+
     localStorage.setItem(HAS_VISITED_KEY, "true");
     window.scrollTo(0, 0);
 
-    // Poll until #pricing exists and has a stable offset, then scroll.
+    // Poll until the pricing cards exist, then force-scroll after layout settles.
     let attempts = 0;
-    let lastTop = -1;
-    let stableCount = 0;
     const tick = () => {
       attempts++;
-      const el =
-        document.getElementById("pricing-cards") ||
-        document.getElementById("pricing");
+      const el = document.getElementById("pricing") || document.getElementById("pricing-cards");
       if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        if (top === lastTop && top > 0) {
-          stableCount++;
-          if (stableCount >= 2) {
-            window.scrollTo({ top: top - 8, behavior: "smooth" });
-            return;
-          }
-        } else {
-          stableCount = 0;
-          lastTop = top;
-        }
+        const top = el.getBoundingClientRect().top + window.scrollY - 12;
+        window.scrollTo({ top, behavior: "auto" });
+        requestAnimationFrame(() => window.scrollTo({ top, behavior: "smooth" }));
+        return;
       }
-      if (attempts < 40) setTimeout(tick, 150);
+      if (attempts < 60) setTimeout(tick, 100);
     };
-    setTimeout(tick, 200);
+    requestAnimationFrame(tick);
   }, []);
 
   return (
@@ -134,7 +126,7 @@ const Index = () => {
         <LazySection id="how"><HowItWorks /></LazySection>
         <LazySection id="features"><Features /></LazySection>
         <LazySection><CreditReportInfo /></LazySection>
-        <div id="pricing" className="scroll-mt-16"><Pricing /></div>
+        <div><Pricing /></div>
         <LazySection><ComparisonTable /></LazySection>
         <LazySection><Testimonials /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
