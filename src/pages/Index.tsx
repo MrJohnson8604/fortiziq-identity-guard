@@ -27,6 +27,7 @@ const HowItWorks = lazyWithRetry(() => import("@/components/HowItWorks"));
 const Features = lazyWithRetry(() => import("@/components/Features"));
 
 const CreditReportInfo = lazyWithRetry(() => import("@/components/CreditReportInfo"));
+const LoginSection = lazyWithRetry(() => import("@/components/LoginSection"));
 const ComparisonTable = lazyWithRetry(() => import("@/components/ComparisonTable"));
 const Testimonials = lazyWithRetry(() => import("@/components/Testimonials"));
 const FAQ = lazyWithRetry(() => import("@/components/FAQ"));
@@ -129,6 +130,7 @@ const Index = () => {
         <div><Pricing /></div>
         <LazySection><ComparisonTable /></LazySection>
         <LazySection><Testimonials /></LazySection>
+        <LazySection><LoginSection /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
         <LazySection minHeight="200px"><PreFooterCTA /></LazySection>
       </main>
