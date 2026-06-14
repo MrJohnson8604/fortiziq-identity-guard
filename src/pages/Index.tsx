@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense, useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Pricing from "@/components/Pricing";
 import SEO from "@/components/SEO";
 
 // Auto-recover from stale chunk errors after a deploy by reloading once.
@@ -24,7 +25,7 @@ const lazyWithRetry = <T,>(factory: () => Promise<{ default: React.ComponentType
 const FearRelief = lazyWithRetry(() => import("@/components/FearRelief"));
 const HowItWorks = lazyWithRetry(() => import("@/components/HowItWorks"));
 const Features = lazyWithRetry(() => import("@/components/Features"));
-const Pricing = lazyWithRetry(() => import("@/components/Pricing"));
+
 const CreditReportInfo = lazyWithRetry(() => import("@/components/CreditReportInfo"));
 const ComparisonTable = lazyWithRetry(() => import("@/components/ComparisonTable"));
 const Testimonials = lazyWithRetry(() => import("@/components/Testimonials"));
@@ -75,13 +76,25 @@ const LazySection = ({
   );
 };
 
+const HAS_VISITED_KEY = "fortiziq_has_visited";
+
 const Index = () => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
     if (!window.location.hash) {
-      window.scrollTo(0, 0);
+      const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
+      if (!hasVisited) {
+        localStorage.setItem(HAS_VISITED_KEY, "true");
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          const el = document.getElementById("pricing");
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 800);
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   }, []);
 
@@ -99,7 +112,7 @@ const Index = () => {
         <LazySection id="how"><HowItWorks /></LazySection>
         <LazySection id="features"><Features /></LazySection>
         <LazySection><CreditReportInfo /></LazySection>
-        <LazySection id="pricing"><Pricing /></LazySection>
+        <div id="pricing" className="scroll-mt-16"><Pricing /></div>
         <LazySection><ComparisonTable /></LazySection>
         <LazySection><Testimonials /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
