@@ -130,6 +130,7 @@ const Index = () => {
         <div><Pricing /></div>
         <LazySection><ComparisonTable /></LazySection>
         <LazySection><Testimonials /></LazySection>
+        <LazySection><LoginSection /></LazySection>
         <LazySection id="faq"><FAQ /></LazySection>
         <LazySection minHeight="200px"><PreFooterCTA /></LazySection>
       </main>
