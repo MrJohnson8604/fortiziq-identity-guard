@@ -424,9 +424,20 @@ const Pricing = () => {
             >
               Get My Reports + Scores
             </a>
-            <p className="text-center text-xs text-muted-foreground mt-3 mb-4">
+            <p className="text-center text-xs text-muted-foreground mt-3 mb-2">
               One-time charge only. No subscription. No renewal.
             </p>
+            <div className="mb-4 flex items-center justify-center gap-3 text-[10px] text-muted-foreground/80">
+              <span className="inline-flex items-center gap-1">
+                <Lock className="h-3 w-3" /> 256-bit SSL
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <ShieldCheck className="h-3 w-3" /> Secure checkout
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <RefreshCw className="h-3 w-3" /> Instant delivery
+              </span>
+            </div>
 
             <div className="mt-2 border-t border-primary/15 pt-2">
               {renderCategories(REPORT_PLAN.categories, REPORT_PLAN.id)}
