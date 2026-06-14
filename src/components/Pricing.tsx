@@ -283,33 +283,33 @@ const Pricing = () => {
 
         <div
           id="pricing"
-          className="scroll-mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start"
+          className="scroll-mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto items-start pt-6"
         >
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl p-6 sm:p-8 flex flex-col ${
+              className={`relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 flex flex-col ${
                 p.popular
                   ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary animate-pulse-border"
                   : "card-tech"
               }`}
             >
               {p.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_hsl(var(--primary)/0.6)]">
-                    <Sparkles className="h-3.5 w-3.5" /> Most Popular
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
+                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_hsl(var(--primary)/0.6)] whitespace-nowrap">
+                    <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> Most Popular
                   </div>
                 </div>
               )}
 
-              <div className="mb-5">
-                <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
+              <div className="mb-4 sm:mb-5">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold mb-1.5 sm:mb-2">
                   {p.name}{" "}
-                  <span className="text-muted-foreground font-normal text-lg sm:text-xl">
+                  <span className="text-muted-foreground font-normal text-base sm:text-xl">
                     Plan
                   </span>
                 </h3>
-                <p className="text-muted-foreground text-sm sm:text-base">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   {p.tagline}
                 </p>
               </div>
@@ -317,12 +317,12 @@ const Pricing = () => {
               <p className="text-xs text-primary font-semibold mb-1">
                 {p.anchor}
               </p>
-              <div className="mb-6 pb-6 border-b border-primary/15">
+              <div className="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-primary/15">
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-muted-foreground text-xl sm:text-2xl">
+                  <span className="text-muted-foreground text-lg sm:text-2xl">
                     $
                   </span>
-                  <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
+                  <span className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-chrome leading-none">
                     {computePrice(p.price)}
                   </span>
                   <span className="text-muted-foreground text-sm sm:text-base">
@@ -349,7 +349,7 @@ const Pricing = () => {
                 }}
                 onClick={() => handleCtaClick(p.id, p.url, p.price)}
                 data-analytics-id={p.id}
-                className={`block text-center px-6 py-4 rounded-full font-semibold transition-all ${
+                className={`block text-center px-4 sm:px-6 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all ${
                   p.popular
                     ? "bg-primary text-primary-foreground hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)]"
                     : "border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
@@ -360,7 +360,7 @@ const Pricing = () => {
               <p className="text-center text-xs text-muted-foreground mt-3 mb-2">
                 No contracts. Cancel anytime. Instant activation.
               </p>
-              <div className="mb-4 flex items-center justify-center gap-3 text-[10px] text-muted-foreground/80">
+              <div className="mb-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-[10px] text-muted-foreground/80">
                 <span className="inline-flex items-center gap-1">
                   <Lock className="h-3 w-3" /> 256-bit SSL
                 </span>
@@ -379,12 +379,12 @@ const Pricing = () => {
           ))}
 
           {/* One-time Credit Report card */}
-          <div className="relative rounded-3xl p-6 sm:p-8 card-tech flex flex-col">
-            <div className="mb-5">
-              <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
+          <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 card-tech flex flex-col">
+            <div className="mb-4 sm:mb-5">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold mb-1.5 sm:mb-2">
                 Credit Report
               </h3>
-              <p className="text-muted-foreground text-sm sm:text-base">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                 One-time purchase. No monthly fee.
               </p>
             </div>
@@ -392,12 +392,12 @@ const Pricing = () => {
             <p className="text-xs text-primary font-semibold mb-1">
               Just need a snapshot? Start here.
             </p>
-            <div className="mb-6 pb-6 border-b border-primary/15">
+            <div className="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-primary/15">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-muted-foreground text-xl sm:text-2xl">
+                <span className="text-muted-foreground text-lg sm:text-2xl">
                   $
                 </span>
-                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
+                <span className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-chrome leading-none">
                   20
                 </span>
                 <span className="text-muted-foreground text-sm sm:text-base">
@@ -420,14 +420,14 @@ const Pricing = () => {
                 handleCtaClick(REPORT_PLAN.id, REPORT_PLAN.url, REPORT_PLAN.price)
               }
               data-analytics-id={REPORT_PLAN.id}
-              className="block text-center px-6 py-4 rounded-full font-semibold transition-all border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
+              className="block text-center px-4 sm:px-6 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
             >
               Get My Reports + Scores
             </a>
             <p className="text-center text-xs text-muted-foreground mt-3 mb-2">
               One-time charge only. No subscription. No renewal.
             </p>
-            <div className="mb-4 flex items-center justify-center gap-3 text-[10px] text-muted-foreground/80">
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-[10px] text-muted-foreground/80">
               <span className="inline-flex items-center gap-1">
                 <Lock className="h-3 w-3" /> 256-bit SSL
               </span>
