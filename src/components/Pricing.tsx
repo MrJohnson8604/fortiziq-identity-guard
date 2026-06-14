@@ -114,7 +114,7 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 sm:py-24 md:py-32 relative overflow-hidden">
+    <section className="py-20 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container relative">
@@ -160,7 +160,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div id="pricing-cards" className="scroll-mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+        <div id="pricing" className="scroll-mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
           {plans.map((p) => (
             <div
               key={p.name}
