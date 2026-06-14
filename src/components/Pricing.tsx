@@ -409,7 +409,7 @@ const Pricing = () => {
               </p>
             </div>
 
-            <
+            <a
               href={REPORT_PLAN.url}
               target="_blank"
               rel="noopener noreferrer"
