@@ -392,16 +392,21 @@ const Pricing = () => {
             <p className="text-xs text-primary font-semibold mb-1">
               Just need a snapshot? Start here.
             </p>
-            <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-primary/15">
-              <span className="text-muted-foreground text-xl sm:text-2xl">
-                $
-              </span>
-              <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
-                20
-              </span>
-              <span className="text-muted-foreground text-sm sm:text-base">
-                one-time
-              </span>
+            <div className="mb-6 pb-6 border-b border-primary/15">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-muted-foreground text-xl sm:text-2xl">
+                  $
+                </span>
+                <span className="font-display text-5xl sm:text-6xl font-bold text-chrome">
+                  20
+                </span>
+                <span className="text-muted-foreground text-sm sm:text-base">
+                  one-time
+                </span>
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                One-time charge · Instant delivery
+              </p>
             </div>
 
             <a
@@ -419,9 +424,20 @@ const Pricing = () => {
             >
               Get My Reports + Scores
             </a>
-            <p className="text-center text-xs text-muted-foreground mt-3 mb-4">
+            <p className="text-center text-xs text-muted-foreground mt-3 mb-2">
               One-time charge only. No subscription. No renewal.
             </p>
+            <div className="mb-4 flex items-center justify-center gap-3 text-[10px] text-muted-foreground/80">
+              <span className="inline-flex items-center gap-1">
+                <Lock className="h-3 w-3" /> 256-bit SSL
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <ShieldCheck className="h-3 w-3" /> Secure checkout
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <RefreshCw className="h-3 w-3" /> Instant delivery
+              </span>
+            </div>
 
             <div className="mt-2 border-t border-primary/15 pt-2">
               {renderCategories(REPORT_PLAN.categories, REPORT_PLAN.id)}
