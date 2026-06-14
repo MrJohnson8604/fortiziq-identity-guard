@@ -55,6 +55,14 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href={loginUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Log In
+          </a>
         </nav>
         <div className="flex items-center gap-2">
           <a
