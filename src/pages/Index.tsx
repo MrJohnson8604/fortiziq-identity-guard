@@ -76,26 +76,46 @@ const LazySection = ({
   );
 };
 
-const HAS_VISITED_KEY = "fortiziq_has_visited";
+const HAS_VISITED_KEY = "fortiziq_has_visited_v2";
 
 const Index = () => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-    if (!window.location.hash) {
-      const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
-      if (!hasVisited) {
-        localStorage.setItem(HAS_VISITED_KEY, "true");
-        window.scrollTo(0, 0);
-        setTimeout(() => {
-          const el = document.getElementById("pricing");
-          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 800);
-      } else {
-        window.scrollTo(0, 0);
-      }
+    if (window.location.hash) return;
+
+    const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
+    if (hasVisited) {
+      window.scrollTo(0, 0);
+      return;
     }
+    localStorage.setItem(HAS_VISITED_KEY, "true");
+    window.scrollTo(0, 0);
+
+    // Poll until #pricing exists and has a stable offset, then scroll.
+    let attempts = 0;
+    let lastTop = -1;
+    let stableCount = 0;
+    const tick = () => {
+      attempts++;
+      const el = document.getElementById("pricing");
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (top === lastTop && top > 0) {
+          stableCount++;
+          if (stableCount >= 2) {
+            window.scrollTo({ top: top - 8, behavior: "smooth" });
+            return;
+          }
+        } else {
+          stableCount = 0;
+          lastTop = top;
+        }
+      }
+      if (attempts < 40) setTimeout(tick, 150);
+    };
+    setTimeout(tick, 200);
   }, []);
 
   return (
