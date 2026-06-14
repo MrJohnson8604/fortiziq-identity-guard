@@ -76,13 +76,25 @@ const LazySection = ({
   );
 };
 
+const HAS_VISITED_KEY = "fortiziq_has_visited";
+
 const Index = () => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
     if (!window.location.hash) {
-      window.scrollTo(0, 0);
+      const hasVisited = localStorage.getItem(HAS_VISITED_KEY);
+      if (!hasVisited) {
+        localStorage.setItem(HAS_VISITED_KEY, "true");
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          const el = document.getElementById("pricing");
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 800);
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   }, []);
 
