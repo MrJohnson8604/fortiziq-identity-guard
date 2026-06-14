@@ -25,7 +25,7 @@ const lazyWithRetry = <T,>(factory: () => Promise<{ default: React.ComponentType
 const FearRelief = lazyWithRetry(() => import("@/components/FearRelief"));
 const HowItWorks = lazyWithRetry(() => import("@/components/HowItWorks"));
 const Features = lazyWithRetry(() => import("@/components/Features"));
-const Pricing = lazyWithRetry(() => import("@/components/Pricing"));
+
 const CreditReportInfo = lazyWithRetry(() => import("@/components/CreditReportInfo"));
 const ComparisonTable = lazyWithRetry(() => import("@/components/ComparisonTable"));
 const Testimonials = lazyWithRetry(() => import("@/components/Testimonials"));
