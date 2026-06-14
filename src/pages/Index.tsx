@@ -85,15 +85,13 @@ const Index = () => {
     }
 
     const shouldScrollToPricing =
-      window.location.hash === "#pricing" ||
-      (!window.location.hash && !localStorage.getItem(HAS_VISITED_KEY));
+      window.location.hash === "#pricing" || !window.location.hash;
 
     if (!shouldScrollToPricing) {
       window.scrollTo(0, 0);
       return;
     }
 
-    localStorage.setItem(HAS_VISITED_KEY, "true");
     window.scrollTo(0, 0);
 
     // Poll until the pricing cards exist, then force-scroll after layout settles.
