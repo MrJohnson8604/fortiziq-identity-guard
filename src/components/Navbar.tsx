@@ -14,6 +14,8 @@ const Navbar = () => {
     { href: "/#credit-report-info", label: "Credit Report" },
     { href: "/#faq", label: "FAQ" },
   ];
+  const loginUrl =
+    "https://www.identityprotection-services.com/Login.aspx?ID=JWsYxCTa8+ui/RTaN3TMEN5jaSHXRv89aZJcXwg+25E=";
 
   const scrollToId = (id: string) => {
     const attempt = (tries = 20) => {
